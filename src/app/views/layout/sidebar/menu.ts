@@ -2,6 +2,14 @@ import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
   {
+    label: 'CRM',
+    isTitle: true
+  },
+  {
+    label: 'CRM View',
+    icon: 'home',
+    link: '/leads'
+  },{
     label: 'Main',
     isTitle: true
   },
