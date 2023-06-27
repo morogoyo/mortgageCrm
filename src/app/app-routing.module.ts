@@ -12,10 +12,12 @@ const routes: Routes = [
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
+
       {
         path: 'leads',
         loadChildren: () => import('./leads/leads.module').then(m => m.LeadsModule)
-      },{
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('./views/pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },

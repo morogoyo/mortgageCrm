@@ -11,17 +11,27 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { AuthServiceComponent } from './authorization/auth-service/auth-service.component';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {TokenInterceptorService} from "./services/authorization/token-interceptor.service";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
+    AuthServiceComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule
+
+
   ],
   providers: [
     AuthGuard,
@@ -35,7 +45,7 @@ import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
           scss: () => import('highlight.js/lib/languages/scss'),
         }
       }
-    }
+    },{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}
   ],
   bootstrap: [AppComponent]
 })
