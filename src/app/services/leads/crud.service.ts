@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {ApplicationConfiguration} from "../../_helpers/applicationConfiguration";
+import {
+  ACCESS_CONTROL_ALLOW_HEADERS,
+  ACCESS_CONTROL_ALLOW_METHODS,
+  ACCESS_CONTROL_ALLOW_ORIGIN,
+  ApplicationConfiguration,
+  CONTENT_TYPE, ORIGIN
+} from "../../_helpers/applicationConfiguration";
+import {TokenInterceptorService} from "../authorization/token-interceptor.service";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +28,10 @@ export class CrudService {
       'Access-Control-Allow-Methods': ACCESS_CONTROL_ALLOW_METHODS,
       'Access-Control-Allow-Headers': ACCESS_CONTROL_ALLOW_HEADERS })
   };
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient, private httpIntercept: TokenInterceptorService) { }
 
 
-  viewAllLeads() {
+  viewAllLeads(): Observable<any>  {
     return this.http.get(this.apiurl+"/view");
   }
 

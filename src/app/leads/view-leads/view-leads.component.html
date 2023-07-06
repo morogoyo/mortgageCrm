@@ -1,6 +1,56 @@
 <p>view-leads works!</p>
 
 
-<div *ngFor="let item of leads | keyvalue">
-  {{item.key}}:{{item.value}}
+<div *ngFor="let lead of leads ">
+  {{lead.fname}},{{lead.email}}
 </div>
+
+<div>
+<!--  <p>{{leads.email}}, {{leads.fname}}</p>-->
+</div>
+<div class="col-lg-12 col-md-12 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Striped Rows</h5>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">ID#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Email</th>
+          <th scope="col">phoneNumber</th>
+          <th scope="col">Lead Source</th>
+          <th scope="col">Message</th>
+          <th scope="col">state</th>
+          <th scope="col">zipcode</th>
+          <th scope="col">companyName</th>
+          <th scope="col">address</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor=" let client of clients ">
+
+          <td scope="row">{{client.id}}</td>
+          <td scope="row">{{client.userInfo.fname}}</td>
+          <td scope="row">{{client.userInfo.lname}}</td>
+          <td>{{client.userInfo.email}}</td>
+          <td>{{client.userInfo.phoneNumber || "NA" }}</td>
+          <td>{{client.userInfo.address || "NA"}}</td>
+          <td>{{client.userInfo.city || "NA"}}</td>
+          <td>{{client.userInfo.state || "NA"}}</td>
+          <td>{{client.userInfo.zipcode || "NA"}}</td>
+          <td>{{client.userInfo.companyName || "NA"}}</td>
+          <!--                <td>{{client.clientAssests.adminurl || "NA"}}</td>
+                          <td>{{client.clientAssests.services || "NA"}}</td>
+                          <td>{{client.clientAssests.siteurl || "NA"}}</td>-->
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
