@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {
   }
 
+
+
   ngOnInit(): void {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';

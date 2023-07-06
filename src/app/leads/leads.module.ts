@@ -1,32 +1,39 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AddLeadsComponent } from './add-leads/add-leads.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {AddLeadsComponent} from './add-leads/add-leads.component';
 import {RouterModule, Routes} from "@angular/router";
-import {AppsComponent} from "../views/pages/apps/apps.component";
-import {EmailComponent} from "../views/pages/apps/email/email.component";
-import {InboxComponent} from "../views/pages/apps/email/inbox/inbox.component";
-import {ReadComponent} from "../views/pages/apps/email/read/read.component";
-import {ComposeComponent} from "../views/pages/apps/email/compose/compose.component";
-import {ChatComponent} from "../views/pages/apps/chat/chat.component";
-import {CalendarComponent} from "../views/pages/apps/calendar/calendar.component";
+import {ViewLeadsComponent} from './view-leads/view-leads.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'add',
     component: AddLeadsComponent,
     children: [
       {
-        path: '',
+        path: 'add-leads',
         redirectTo: 'add-leads',
         pathMatch: 'full',
       }
     ]
-  }
+  },
+  {
+    path: '',
+    component: ViewLeadsComponent,
+    children: [
+      {
+        path: 'view-leads',
+        redirectTo: 'view-leads',
+        pathMatch: 'full',
+      }
+    ]
+  },
+
 ]
 
 @NgModule({
   declarations: [
-    AddLeadsComponent
+    AddLeadsComponent,
+    ViewLeadsComponent
   ],
   imports: [
     CommonModule,
