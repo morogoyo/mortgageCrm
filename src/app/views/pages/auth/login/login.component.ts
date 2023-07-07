@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {
   }
 
+
+
   ngOnInit(): void {
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -41,7 +43,7 @@ export class LoginComponent implements OnInit {
       if (result != "") {
         localStorage.setItem('isLoggedin', 'true');
         this.responsedata = result;
-        localStorage.setItem('token', this.responsedata.token);
+        // localStorage.setItem('token', this.responsedata.token);
         this.router.navigate(['/'])
       } else {
         localStorage.setItem('isLoggedin', 'false');
@@ -50,21 +52,6 @@ export class LoginComponent implements OnInit {
         }
       }
     });
-
-
-    // ProceedLogin($event: MouseEvent) {
-    //   if (this.Login.valid) {
-    //     console.log(this.Login.value)
-    //     this.authService.ProceedLogin(this.Login.value).subscribe(result => {
-    //       if(result!=null){
-    //         this.responsedata=result;
-    //         localStorage.setItem('token',this.responsedata.jwtToken);
-    //        this.router.navigate([this.returnUrl])
-    //       }
-    //
-    //     });
-    //   }
-    // }
 
   }
 }
