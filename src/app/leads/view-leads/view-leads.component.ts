@@ -34,11 +34,11 @@ export class ViewLeadsComponent implements OnInit {
   }
 
   updateLeadsToRemove(){
-    this.leadsToRemove =
+    // this.leadsToRemove =
   }
 
   deleteLeads(leads: Leads){
-    leadsToRemove
+    // leadsToRemove
   }
 }
 
