@@ -18,4 +18,6 @@ export class DeleteLeadsComponent implements OnInit {
       this.basicModalCloseResult = "Modal closed" + result
     }).catch((res) => {});
   }
+
+
 }

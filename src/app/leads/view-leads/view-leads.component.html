@@ -3,7 +3,11 @@
 
     <div class="card-body">
       <h5 class="card-title">Lead Summary</h5>
-      <div><input (click)="deleteLeads(leads); $event.preventDefault()" class="btn btn-primary" type="submit" value="Delete Selected"></div>
+      <div><input  class="btn btn-primary" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> </div>
+
+
+
+
       <table  class="table table-striped table-bordered table-hover">
 
         <thead>
@@ -32,7 +36,7 @@
 <!--        minus-square  user-minus-->
         <tbody >
         <tr *ngFor="let lead of leads ">
-          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.fname}}" ></td>
+          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (change)="deleteLeads($event)"></td>
           <td  scope="row">{{lead.id}}</td>
           <td scope="row">{{lead.fname}}</td>
           <td scope="row">{{lead.lname}}</td>
@@ -51,6 +55,20 @@
     </div>
   </div>
 </div>
+
+<ng-template #basicModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Deleting The following Leads</h5>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <p>Leads</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('by: save button')">Save changes</button>
+  </div>
+</ng-template>
 
 <!--///////////////////////////////////-->
 <!--///////////////////////////////////-->

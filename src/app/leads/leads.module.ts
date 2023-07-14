@@ -3,7 +3,8 @@ import {CommonModule} from '@angular/common';
 import {AddLeadsComponent} from './add-leads/add-leads.component';
 import {RouterModule, Routes} from "@angular/router";
 import {ViewLeadsComponent} from './view-leads/view-leads.component';
-import { DeleteLeadsComponent } from './delete-view/delete-leads.component';
+import { DeleteLeadsComponent } from './delete-leads/delete-leads.component';
+import {ModalComponent} from "../views/pages/ui-components/modal/modal.component";
 
 const routes: Routes = [
   {
@@ -50,7 +51,9 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
+
+
   ]
 })
 export class LeadsModule { }
