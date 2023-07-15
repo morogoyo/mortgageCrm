@@ -1,10 +1,8 @@
-import {Component, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {CrudService} from "../../services/leads/crud.service";
 import {Leads} from "../../_shared/interfaces/leads";
-import {DataTable} from "simple-datatables";
-import {DeleteLeadsComponent} from "../delete-leads/delete-leads.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {AddLeadsComponent} from "../add-leads/add-leads.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -13,23 +11,23 @@ import {AddLeadsComponent} from "../add-leads/add-leads.component";
   styleUrls: ['./view-leads.component.scss']
 })
 export class ViewLeadsComponent implements OnInit {
-
-
-
-
-
-  constructor(private crudService: CrudService, private modalService: NgbModal) {
+  constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute, private router: Router) {
   }
 
   leads: any;
 
-  leadsToRemove: Leads;
+  leadsToRemove: any;
 
   ids: number[] = [0];
 
+
   leadsToDisplay: Leads[] = [{id:0, fname: "" , lname:"", leadSource:"", email:"", message:"" ,phoneNumber:""}];
 
-  // leadsToDisplay: Leads[];
+  filteredLeadsToDisplay : any[] = [];
+
+  count: number = 0;
+
+
   basicModalCloseResult: string = '';
 
 
@@ -41,50 +39,46 @@ export class ViewLeadsComponent implements OnInit {
 
   getAllLeads() {
     this.crudService.viewAllLeads().subscribe((data) => {
-      console.log('this is the viewAllLeads() that is giving me shit ');
-      console.log(data);
+      // console.log('this is the viewAllLeads() that is giving me shit ');
+      // console.log(data);
       // console.log(data.leads.fname)
       this.leads = data;
     });
   }
 
-  updateLeadsToRemove() {
-    // this.leadsToRemove =
-  }
 
-  leadsToBeDeleted(lead: any) {
+  leadsToBeDeleted(lead: any, i: number) {
 
-    console.log(lead.target.getAttribute("id")+" this is the id from the event emmiter ");
-
-    let id = lead.target.getAttribute("id")
-    // let id = lead.target.
-
+    var id = lead.target.getAttribute("id")
+    console.log(id);
+    // let displayId = this._indexCorrection(id);// correcting ids to be displayed in the modal
     if (!this.ids.includes(id)) {
-      console.log(id)
-      this.ids[id] = id;
-      console.log(this.ids[id])
-      this.displayLeadToBeDeletedInModal(id);
+
+      // console.log("incoming id to leadsToBeDeleted(id))", id);
+      this.ids[id] = id; // Id's to be deleted addition
+      // console.log("Id # that will be deleted", this.ids[id]);
+      this.leadsToDisplay[i] = this.leads[i];
+      this.count++;
     } else {
       delete this.ids[id];
-      delete this.leadsToDisplay[id];
+      delete this.leadsToDisplay[i];
+      this.count--;
 
     }
-    // console.log(this.ids);
-    // console.log(this.leadsToDisplay);
+    console.log('ids from the method ', this.ids);
+    console.log('ids from the method ', i);
+    console.log('leads to display leadsToDisplay ', this.leadsToDisplay);
+    console.log('leads to filterdlistToDisplay ', this.filteredLeadsToDisplay);
 
   }
 
 
-  displayLeadToBeDeletedInModal(currentId: number){
-    console.log(currentId)
-    // this.leadsToDisplay[0] = {id:"", fname: "" , lname:"", leadSource:"", email:"", message:"" ,phoneNumber:""};
-    this.leadsToDisplay[currentId] = this.leads[currentId - 1];
-    console.log(this.leads[currentId -1])
-            console.log(this.leadsToDisplay);
-     }
+  displayLeadToBeDeletedInModal() {
+    console.log("leads display" ,this.leads)
+    this.leadsToDisplay = this.leads.getAttribute("id");
 
 
-
+   }
 
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {
@@ -93,6 +87,34 @@ export class ViewLeadsComponent implements OnInit {
     });
 
   }
+
+
+  removeLeads(){
+    console.log(this.ids)
+    let filtered = this.ids.filter(function (el) {
+      return el != null;
+    });
+
+
+
+    // this.crudService.deleteLead(filtered).subscribe((data) => {console.log(data)})
+
+    location.reload();
+
+  //   this.router.navigate(['/leads']);
+  }
+
+    _indexCorrection(id: any): any
+    {
+      console.log(id)
+    let newId: number;
+      if(id != 0){
+       return newId = (id + 1 - 1);
+
+      }
+
+    }
+
 }
 
 
