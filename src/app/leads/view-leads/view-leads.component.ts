@@ -15,6 +15,9 @@ import {AddLeadsComponent} from "../add-leads/add-leads.component";
 export class ViewLeadsComponent implements OnInit {
 
 
+
+
+
   constructor(private crudService: CrudService, private modalService: NgbModal) {
   }
 
@@ -22,14 +25,17 @@ export class ViewLeadsComponent implements OnInit {
 
   leadsToRemove: Leads;
 
-  ids: number[] = [];
+  ids: number[] = [0];
 
+  leadsToDisplay: Leads[] = [{id:0, fname: "" , lname:"", leadSource:"", email:"", message:"" ,phoneNumber:""}];
+
+  // leadsToDisplay: Leads[];
   basicModalCloseResult: string = '';
 
 
   ngOnInit(): void {
     // const dataTable = new DataTable("#leadsTable");
-    this.getAllLeads()
+    this.getAllLeads();
 
   }
 
@@ -46,28 +52,39 @@ export class ViewLeadsComponent implements OnInit {
     // this.leadsToRemove =
   }
 
-  deleteLeads(lead: any) {
+  leadsToBeDeleted(lead: any) {
 
-    console.log(lead.target.getAttribute("id"));
+    console.log(lead.target.getAttribute("id")+" this is the id from the event emmiter ");
 
-    let index = (lead.target.getAttribute("id") - 1);
+    let id = lead.target.getAttribute("id")
+    // let id = lead.target.
 
-    if (!this.ids.includes(lead.target.getAttribute("id"))) {
-      this.ids.push(lead.target.getAttribute("id"));
-      this.ids.sort();
+    if (!this.ids.includes(id)) {
+      console.log(id)
+      this.ids[id] = id;
+      console.log(this.ids[id])
+      this.displayLeadToBeDeletedInModal(id);
     } else {
-      this.ids.sort();
-      delete this.ids[index];
-      this.ids = this.ids.filter(function (id) {
-        return id != null;
-      })
+      delete this.ids[id];
+      delete this.leadsToDisplay[id];
 
     }
+    // console.log(this.ids);
+    // console.log(this.leadsToDisplay);
 
-
-
-    console.log(this.ids);
   }
+
+
+  displayLeadToBeDeletedInModal(currentId: number){
+    console.log(currentId)
+    // this.leadsToDisplay[0] = {id:"", fname: "" , lname:"", leadSource:"", email:"", message:"" ,phoneNumber:""};
+    this.leadsToDisplay[currentId] = this.leads[currentId - 1];
+    console.log(this.leads[currentId -1])
+            console.log(this.leadsToDisplay);
+     }
+
+
+
 
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {

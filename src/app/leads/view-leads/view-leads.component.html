@@ -36,7 +36,7 @@
 <!--        minus-square  user-minus-->
         <tbody >
         <tr *ngFor="let lead of leads ">
-          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (change)="deleteLeads($event)"></td>
+          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (click)="leadsToBeDeleted($event)"></td>
           <td  scope="row">{{lead.id}}</td>
           <td scope="row">{{lead.fname}}</td>
           <td scope="row">{{lead.lname}}</td>
@@ -63,6 +63,22 @@
   </div>
   <div class="modal-body">
     <p>Leads</p>
+    <table  class="table table-striped table-bordered table-hover">
+      <tbody>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <tr *ngFor="let display of leadsToDisplay ">
+        <td>{{display.id}}</td>
+        <td></td>
+        <td>{{display.fname }}{{display.lname}}</td>
+        <td></td>
+        <td>{{display.email}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
