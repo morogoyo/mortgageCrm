@@ -75,7 +75,7 @@ export class ViewLeadsComponent implements OnInit {
 
   displayLeadToBeDeletedInModal() {
     console.log("leads display" ,this.leads)
-    this.leadsToDisplay = this.leads.getAttribute("id");
+    // this.leadsToDisplay = this.leads.getAttribute("id");
 
 
    }
@@ -94,14 +94,10 @@ export class ViewLeadsComponent implements OnInit {
     let filtered = this.ids.filter(function (el) {
       return el != null;
     });
-
-
-
-    // this.crudService.deleteLead(filtered).subscribe((data) => {console.log(data)})
-
+    this.crudService.deleteLead(filtered).subscribe((data) => {console.log(data)})
     location.reload();
 
-  //   this.router.navigate(['/leads']);
+    this.router.navigate(['/leads']);
   }
 
     _indexCorrection(id: any): any

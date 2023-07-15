@@ -69,11 +69,11 @@
       <th>Name</th>
       <th>Email</th>
       <tr  *ngFor="let display of leadsToDisplay ">
-        <td>{{display.id || "NA" }}</td>
+        <td *ngIf="leads">{{display?.id || "NA" }}</td>
         <td></td>
-        <td>{{display.fname || "NA" }}{{display.lname || "NA" }}</td>
+        <td>{{display?.fname || "NA" }}{{display?.lname || "NA" }}</td>
         <td></td>
-        <td>{{display.email|| "NA"  }}</td>
+        <td>{{display?.email|| "NA"  }}</td>
 
       </tr>
       </tbody>
@@ -82,7 +82,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Reset Selected Leads</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); ">Confirm Lead Deletion</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeLeads()">Confirm Lead Deletion</button>
   </div>
 </ng-template>
 
