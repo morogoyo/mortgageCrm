@@ -31,7 +31,13 @@ export class CrudService {
   }
 
   addLead(leads: any){
-    return this.http.post(this.apiurl, leads);
+    return this.http.post(this.apiurl+"/add", leads);
   }
+
+ deleteLead(leads: any){
+    return this.http.post(this.apiurl+"/multi_delete", leads);
+  }
+
+
 
 }
