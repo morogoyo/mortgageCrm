@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, Renderer2 } from '@an
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -32,11 +33,25 @@ export class NavbarComponent implements OnInit {
   onLogout(e: Event) {
     e.preventDefault();
     localStorage.removeItem('isLoggedin');
-    localStorage.removeItem('token')
+      console.log('logging out');
+    localStorage.removeItem('${AUTHENTICATED_USER}');
+    localStorage.removeItem('${TOKEN}');
+    sessionStorage.removeItem('${AUTHENTICATED_USER}');
+    sessionStorage.removeItem('${TOKEN}');
+
+
 
     if (!localStorage.getItem('isLoggedin')) {
       this.router.navigate(['/auth/login']);
     }
   }
+//////////////////////////////////////////
 
+  logout() {
+    console.log('logging out');
+    localStorage.removeItem('${AUTHENTICATED_USER}');
+    localStorage.removeItem('${TOKEN}');
+    sessionStorage.removeItem('${AUTHENTICATED_USER}');
+    sessionStorage.removeItem('${TOKEN}');
+  }
 }
