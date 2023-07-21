@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthServiceComponent implements OnInit {
 
+   rene= "good Guy";
+
   constructor() { }
 
   ngOnInit(): void {

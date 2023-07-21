@@ -1,1 +1,1 @@
-API_URL = `${BACKEND_URL}`
+// API_URL = `${BACKEND_URL}`
