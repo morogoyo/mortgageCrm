@@ -5,6 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {ViewLeadsComponent} from './view-leads/view-leads.component';
 import { DeleteLeadsComponent } from './delete-leads/delete-leads.component';
 import {ModalComponent} from "../views/pages/ui-components/modal/modal.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -40,6 +41,17 @@ const routes: Routes = [
       }
     ]
   },
+  // {
+  //   path: 'delete',
+  //   component: DeleteLeadsComponent,
+  //   children: [
+  //     {
+  //       path: 'delete-view',
+  //       redirectTo: 'delete-view',
+  //       pathMatch: 'full',
+  //     }
+  //   ]
+  // },
 
 ]
 
@@ -49,11 +61,13 @@ const routes: Routes = [
     ViewLeadsComponent,
     DeleteLeadsComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule,
+        ReactiveFormsModule
 
 
-  ]
+    ]
 })
 export class LeadsModule { }

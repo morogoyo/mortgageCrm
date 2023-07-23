@@ -4,13 +4,17 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenInterceptorService} from "../authorization/token-interceptor.service";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
+import {Leads} from "../../_shared/interfaces/leads";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
 
-  apiurl = environment.REST_API_SERVER + '/lead';
+  API_URL = environment.REST_API_SERVER + '/lead';
+
+  lead: any;
+
 
 
 
@@ -28,15 +32,29 @@ export class CrudService {
 
 
   viewAllLeads(): Observable<any>  {
-    return this.http.get(this.apiurl+"/view");
+    return this.http.get(this.API_URL+"/view");
   }
 
   addLead(leads: any){
-    return this.http.post(this.apiurl+"/add", leads);
+
+    this.lead = {
+
+      fname: leads.fname,
+      lname: leads.lname,
+      email: leads.email,
+      message: leads.message,
+      phoneNumber: leads.phoneNumber,
+      leadSource: leads.leadSource
+
+
+    }
+
+
+    return this.http.post<Leads>(this.API_URL+"/add", this.lead);
   }
 
  deleteLead(leads: any){
-    return this.http.post(this.apiurl+"/multi_delete", leads);
+    return this.http.post(this.API_URL+"/multi_delete", leads);
   }
 
 
