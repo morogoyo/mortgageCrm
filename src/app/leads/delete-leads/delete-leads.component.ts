@@ -13,6 +13,8 @@ export class DeleteLeadsComponent implements OnInit {
 
   basicModalCloseResult: string = '';
   constructor(private modalService: NgbModal) { }
+
+
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {
       this.basicModalCloseResult = "Modal closed" + result
