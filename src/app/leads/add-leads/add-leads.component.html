@@ -1,4 +1,32 @@
-<p>add-leads works!</p>
+<div class="container">
+<form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-<h1>I am the master of the universe</h1>
-<h1></h1>
+
+  <div class="mb-3">
+    <label for="fname" class="form-label">First Name</label>
+    <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">
+  </div>
+  <div class="mb-3">
+    <label for="lname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+  </div>
+  <div class="mb-3">
+    <label for="phoneNumber" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" autocomplete="off" placeholder="Phone Number">
+  </div>
+  <div class="mb-3">
+    <label for="leadSource" class="form-label">Lead Source</label>
+    <input type="text" class="form-control" formControlName="leadSource" id="leadSource" autocomplete="off" placeholder="Lead Source">
+  </div>
+  <div class="form-check mb-3">
+
+  </div>
+  <button type="submit" class="btn btn-primary me-2">Submit</button>
+
+</form>
+
+</div>
