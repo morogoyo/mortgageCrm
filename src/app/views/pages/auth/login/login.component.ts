@@ -37,13 +37,17 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  username: any = this.Login.get('username')?.value
+
   onLoggedin(e: Event) {
     e.preventDefault();
     this.authService.ProceedLogin(this.Login.value).subscribe(result => {
+
       if (result != "") {
+        console.log(this.Login.get('username')?.value);
         localStorage.setItem('isLoggedin', 'true');
         this.responsedata = result;
-        // localStorage.setItem('token', this.responsedata.token);
+        localStorage.setItem('authenticatedUser', this.responsedata.username);
         this.router.navigate(['/'])
       } else {
         localStorage.setItem('isLoggedin', 'false');

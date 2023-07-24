@@ -54,4 +54,13 @@ export class NavbarComponent implements OnInit {
     sessionStorage.removeItem('${AUTHENTICATED_USER}');
     sessionStorage.removeItem('${TOKEN}');
   }
+
+
+   userName = localStorage.getItem('${AUTHENTICATED_USER}')
+
+
+
+
+
+
 }
