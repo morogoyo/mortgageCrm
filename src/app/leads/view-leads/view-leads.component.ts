@@ -24,7 +24,9 @@ export class ViewLeadsComponent implements OnInit {
   ids: number[] = [0];
 
 
-  leadsToDisplay: Leads[] = [{id: 0, fname: "", lname: "", leadSource: "", email: "", message: "", phoneNumber: ""}];
+  // leadsToDisplay: Leads[] = [{id: 0, fname: "", lname: "", leadSource: "", email: "", message: "", phoneNumber: ""}];
+
+  leadsToDisplay: Set<Leads> = new Set();
 
   filteredLeadsToDisplay: any[] = [];
 
@@ -53,19 +55,22 @@ export class ViewLeadsComponent implements OnInit {
     console.log(id);
     if (!this.ids.includes(id)) {
 
-      this._addLeadToCount(id)
+      this._addLeadToCount(id, i)
 
     } else {
 
-      this._deleteLeadFromCount(id)
+      this._deleteLeadFromCount(id, i)
 
     }
+
+
 
   }
 
 
   displayLeadToBeDeletedInModal() {
-    console.log("leads display", this.leads)
+
+
 
      }
 
@@ -114,27 +119,19 @@ export class ViewLeadsComponent implements OnInit {
 
   }
 
-  _indexCorrection(id: any): any {
-    console.log(id)
-    let newId: number;
-    if (id != 0) {
-      return newId = (id + 1 - 1);
 
-    }
 
-  }
-
-  _addLeadToCount(id: any){
+  _addLeadToCount(id: any, i: any){
     // console.log("incoming id to leadsToBeDeleted(id))", id);
     this.ids[id] = id; // Id's to be deleted addition
     // console.log("Id # that will be deleted", this.ids[id]);
-    this.leadsToDisplay[id] = this.leads[id];
+    this.leadsToDisplay.add(this.leads[i]);
     this.count++;
   }
-  _deleteLeadFromCount(id: any){
-
+  _deleteLeadFromCount(id: any, i: any){
     delete this.ids[id];
-    delete this.leadsToDisplay[id];
+    // delete this.leadsToDisplay[i];
+    this.leadsToDisplay.delete(this.leads[i]);
     this.count--;
   }
 
