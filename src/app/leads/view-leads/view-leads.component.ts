@@ -3,6 +3,8 @@ import {CrudService} from "../../services/leads/crud.service";
 import {Leads} from "../../_shared/interfaces/leads";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
+import {AddLeadsComponent} from "../add-leads/add-leads.component";
+import {FormBuilder} from "@angular/forms";
 
 
 @Component({
@@ -11,7 +13,8 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./view-leads.component.scss']
 })
 export class ViewLeadsComponent implements OnInit {
-  constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute, private router: Router) {
+  constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute,
+              private router: Router, private fb: FormBuilder) {
   }
 
   leads: any;
@@ -21,9 +24,9 @@ export class ViewLeadsComponent implements OnInit {
   ids: number[] = [0];
 
 
-  leadsToDisplay: Leads[] = [{id:0, fname: "" , lname:"", leadSource:"", email:"", message:"" ,phoneNumber:""}];
+  leadsToDisplay: Leads[] = [{id: 0, fname: "", lname: "", leadSource: "", email: "", message: "", phoneNumber: ""}];
 
-  filteredLeadsToDisplay : any[] = [];
+  filteredLeadsToDisplay: any[] = [];
 
   count: number = 0;
 
@@ -39,9 +42,6 @@ export class ViewLeadsComponent implements OnInit {
 
   getAllLeads() {
     this.crudService.viewAllLeads().subscribe((data) => {
-      // console.log('this is the viewAllLeads() that is giving me shit ');
-      // console.log(data);
-      // console.log(data.leads.fname)
       this.leads = data;
     });
   }
@@ -49,36 +49,25 @@ export class ViewLeadsComponent implements OnInit {
 
   leadsToBeDeleted(lead: any, i: number) {
 
-    var id = lead.target.getAttribute("id")
+    let id = lead.target.getAttribute("id")
     console.log(id);
-    // let displayId = this._indexCorrection(id);// correcting ids to be displayed in the modal
     if (!this.ids.includes(id)) {
 
-      // console.log("incoming id to leadsToBeDeleted(id))", id);
-      this.ids[id] = id; // Id's to be deleted addition
-      // console.log("Id # that will be deleted", this.ids[id]);
-      this.leadsToDisplay[i] = this.leads[i];
-      this.count++;
+      this._addLeadToCount(id)
+
     } else {
-      delete this.ids[id];
-      delete this.leadsToDisplay[i];
-      this.count--;
+
+      this._deleteLeadFromCount(id)
 
     }
-    console.log('ids from the method ', this.ids);
-    console.log('ids from the method ', i);
-    console.log('leads to display leadsToDisplay ', this.leadsToDisplay);
-    console.log('leads to filterdlistToDisplay ', this.filteredLeadsToDisplay);
 
   }
 
 
   displayLeadToBeDeletedInModal() {
-    console.log("leads display" ,this.leads)
-    // this.leadsToDisplay = this.leads.getAttribute("id");
+    console.log("leads display", this.leads)
 
-
-   }
+     }
 
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {
@@ -89,27 +78,65 @@ export class ViewLeadsComponent implements OnInit {
   }
 
 
-  removeLeads(){
+  removeLeads() {
     console.log(this.ids)
     let filtered = this.ids.filter(function (el) {
       return el != null;
     });
-    this.crudService.deleteLead(filtered).subscribe((data) => {console.log(data)})
+    this.crudService.deleteLead(filtered).subscribe((data) => {
+      console.log(data)
+    })
     location.reload();
 
     this.router.navigate(['/leads']);
   }
 
-    _indexCorrection(id: any): any
-    {
-      console.log(id)
-    let newId: number;
-      if(id != 0){
-       return newId = (id + 1 - 1);
+  addedLead: any;
 
+  contactForm = this.fb.group({
+    fname: [''],
+    lname: [''],
+    email: [''],
+    leadSource: [''],
+    phoneNumber: [''],
+  });
+
+  preview: String
+
+  onSubmit() {
+    // this.preview = JSON.stringify(this.contactForm.value);
+    this.crudService.addLead(this.contactForm.value).subscribe((leadToSave) => {
+        console.log(leadToSave);
+        this.addedLead = leadToSave;
       }
+    );
+
+
+  }
+
+  _indexCorrection(id: any): any {
+    console.log(id)
+    let newId: number;
+    if (id != 0) {
+      return newId = (id + 1 - 1);
 
     }
+
+  }
+
+  _addLeadToCount(id: any){
+    // console.log("incoming id to leadsToBeDeleted(id))", id);
+    this.ids[id] = id; // Id's to be deleted addition
+    // console.log("Id # that will be deleted", this.ids[id]);
+    this.leadsToDisplay[id] = this.leads[id];
+    this.count++;
+  }
+  _deleteLeadFromCount(id: any){
+
+    delete this.ids[id];
+    delete this.leadsToDisplay[id];
+    this.count--;
+  }
 
 }
 

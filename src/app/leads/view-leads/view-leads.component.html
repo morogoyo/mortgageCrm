@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">Rene's Awesome Lead Summary </h5>
       <div class="col-md-2">
-      <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(basicModal)">
+      <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addLeadModal)">
      <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>
       </div>
 
@@ -88,14 +88,51 @@
   </div>
 </ng-template>
 
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
-<!--///////////////////////////////////-->
+<ng-template #addLeadModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Deleting The following Leads</h5>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <p>Leads</p>
+    <div class="container">
+      <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
+
+        <div class="mb-3">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">
+        </div>
+        <div class="mb-3">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" autocomplete="off" placeholder="Phone Number">
+        </div>
+        <div class="mb-3">
+          <label for="leadSource" class="form-label">Lead Source</label>
+          <input type="text" class="form-control" formControlName="leadSource" id="leadSource" autocomplete="off" placeholder="Lead Source">
+        </div>
+        <div class="form-check mb-3">
+
+        </div>
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+
+      </form>
+
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    </div>
+</ng-template>
 
 
 
