@@ -13,20 +13,20 @@ COPY ./ /usr/local/app/
 RUN npm install --force
 
 # Generate the build of the application
-RUN npm run build  --configuration=dev
+RUN npm run build  --configuration=production
 #RUN npm run build
 
 
 # Stage 2: Serve app with nginx server
 
-## Use official nginx image as the base image
-#FROM nginx:latest
-#
-## Copy the build output to replace the default nginx contents.
-#COPY --from=build /usr/local/app/dist/nds-front /usr/share/nginx/html
-#
-## Copy our custom nginx config
-#COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
+# Use official nginx image as the base image
+FROM nginx:latest
+
+# Copy the build output to replace the default nginx contents.
+COPY --from=build /usr/local/app/dist/nds-front /usr/share/nginx/html
+
+# Copy our custom nginx config
+COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
 
 
 # Expose port 80

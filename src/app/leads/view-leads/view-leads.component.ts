@@ -113,6 +113,7 @@ export class ViewLeadsComponent implements OnInit {
     this.crudService.addLead(this.contactForm.value).subscribe((leadToSave) => {
         console.log(leadToSave);
         this.addedLead = leadToSave;
+
       }
     );
 
