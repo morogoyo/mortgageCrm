@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM node:latest as build
+FROM node:16.20-alpine as build
 
 # Set the working directory
 WORKDIR /usr/local/app
@@ -14,7 +14,8 @@ RUN npm install --force
 
 # Generate the build of the application
 RUN npm run build  --configuration=production
-#RUN npm run build
+
+
 
 
 # Stage 2: Serve app with nginx server
@@ -30,4 +31,4 @@ COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
 
 
 # Expose port 80
-EXPOSE 80
+#EXPOSE 80
