@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('isLoggedin', 'true');
         this.responsedata = result;
         localStorage.setItem('authenticatedUser', this.responsedata.username);
-        this.router.navigate(['/'])
+        this.router.navigate(['/leads'])
       } else {
         localStorage.setItem('isLoggedin', 'false');
         if (localStorage.getItem('isLoggedin')) {

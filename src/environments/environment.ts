@@ -11,7 +11,7 @@ export const environment = {
   AUTHENTICATED_USER: 'authenticatedUser',
   CONTENT_TYPE: 'application/json',
   ACCESS_CONTROL_ALLOW_ORIGIN: '*',
-  ORIGIN: 'http://localhost:4200',
+  ORIGIN: '*',
   ACCESS_CONTROL_ALLOW_METHODS: 'PUT, DELETE, POST, GET, OPTIONS',
   ACCESS_CONTROL_ALLOW_HEADERS: 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Accept',
   API_URL_AUTH: "http://localhost:8080/api/authenticate",
