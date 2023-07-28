@@ -91,9 +91,9 @@ export class ViewLeadsComponent implements OnInit {
     this.crudService.deleteLead(filtered).subscribe((data) => {
       console.log(data)
     })
-    location.reload();
 
-    this.router.navigate(['/leads']);
+
+    this._redirectToLeads()
   }
 
   addedLead: any;
@@ -117,10 +117,8 @@ export class ViewLeadsComponent implements OnInit {
       }
     );
 
-
+    this._redirectToLeads();
   }
-
-
 
   _addLeadToCount(id: any, i: any){
     // console.log("incoming id to leadsToBeDeleted(id))", id);
@@ -136,6 +134,10 @@ export class ViewLeadsComponent implements OnInit {
     this.count--;
   }
 
+  _redirectToLeads() {
+    location.reload();
+    this.router.navigate(['/leads']);
+  }
 }
 
 
