@@ -31,7 +31,6 @@ export class AuthService {
   ProceedLogin(data: any) {
     console.log(data);
     console.log(data.username);
-    console.log(data.userName);
     this.authCall = this.http.post<any>(environment.API_URL_AUTH,
       data
       )
