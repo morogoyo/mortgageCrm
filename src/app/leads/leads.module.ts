@@ -40,18 +40,7 @@ const routes: Routes = [
         pathMatch: 'full',
       }
     ]
-  },
-  // {
-  //   path: 'delete',
-  //   component: DeleteLeadsComponent,
-  //   children: [
-  //     {
-  //       path: 'delete-view',
-  //       redirectTo: 'delete-view',
-  //       pathMatch: 'full',
-  //     }
-  //   ]
-  // },
+  }
 
 ]
 
@@ -66,8 +55,6 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         FormsModule,
         ReactiveFormsModule
-
-
     ]
 })
 export class LeadsModule { }
