@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.clearBrowserDataForThisApplication()
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -56,6 +57,16 @@ export class LoginComponent implements OnInit {
         }
       }
     });
+
+  }
+
+  clearBrowserDataForThisApplication(){
+    localStorage.removeItem('isLoggedin');
+    console.log('logging out');
+    localStorage.removeItem('authenticatedUser');
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('token');
 
   }
 }

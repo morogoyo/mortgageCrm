@@ -52,7 +52,7 @@ export class CalculatorComponent implements OnInit {
 
   }
 
-  etCornerCount(corners: number) {
+  setCornerCount(corners: number) {
     this.outsideCorners = corners;
   }
 
@@ -85,7 +85,7 @@ export class CalculatorComponent implements OnInit {
   }
 
 
-  _termBarCount(rtuLFT: any) {
+  termBarCount(rtuLFT: any) {
     this.termbarCount = rtuLFT / 10;
   }
 
