@@ -52,7 +52,7 @@ export class CalculatorComponent implements OnInit {
 
   }
 
-  etCornerCount(corners: number) {
+  setCornerCount(corners: number) {
     this.outsideCorners = corners;
   }
 
