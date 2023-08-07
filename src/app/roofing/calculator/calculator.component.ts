@@ -85,7 +85,7 @@ export class CalculatorComponent implements OnInit {
   }
 
 
-  _termBarCount(rtuLFT: any) {
+  termBarCount(rtuLFT: any) {
     this.termbarCount = rtuLFT / 10;
   }
 
@@ -121,6 +121,11 @@ export class CalculatorComponent implements OnInit {
         this.screwType = "#14";
       }
     }
+
+  setCornerCount(outsideCorners: any) {
+
+  }
+
 
 }
 
