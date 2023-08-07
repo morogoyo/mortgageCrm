@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {BaseComponent} from './views/layout/base/base.component';
 import {AuthGuard} from './core/guard/auth.guard';
 import {ErrorPageComponent} from './views/pages/error-page/error-page.component';
+import {RoofingModule} from "./roofing/roofing.module";
 
 
 const routes: Routes = [
@@ -12,7 +13,10 @@ const routes: Routes = [
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
-
+      {
+        path: 'roofing',
+        loadChildren: () => import('./roofing/roofing.module').then(m => m.RoofingModule)
+      },
       {
         path: 'leads',
         loadChildren: () => import('./leads/leads.module').then(m => m.LeadsModule)

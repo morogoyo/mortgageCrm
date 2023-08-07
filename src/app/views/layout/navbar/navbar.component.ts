@@ -34,10 +34,10 @@ export class NavbarComponent implements OnInit {
     e.preventDefault();
     localStorage.removeItem('isLoggedin');
       console.log('logging out');
-    localStorage.removeItem('${AUTHENTICATED_USER}');
-    localStorage.removeItem('${TOKEN}');
-    sessionStorage.removeItem('${AUTHENTICATED_USER}');
-    sessionStorage.removeItem('${TOKEN}');
+    localStorage.removeItem('authenticatedUser');
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('token');
 
 
 
