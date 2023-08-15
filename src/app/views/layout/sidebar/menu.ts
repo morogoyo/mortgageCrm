@@ -28,6 +28,26 @@ export const MENU: MenuItem[] = [
       },
     ]
   },
+  {
+    label: 'Client View',
+    icon: 'users',
+    link: '',
+    subItems: [
+      {
+        label: 'view',
+        link: '/client',
+      },{
+        label: 'add',
+        link: '/client/add',
+      },{
+        label: 'update',
+        link: '/client/update',
+      },{
+        label: 'delete',
+        link: '/client/delete',
+      },
+    ]
+  },
 
   //,
   // {
