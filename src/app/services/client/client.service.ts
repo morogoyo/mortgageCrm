@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
+import {environment} from "../../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-
 import {TokenInterceptorService} from "../authorization/token-interceptor.service";
 import {Observable} from "rxjs";
-import {environment} from "../../../environments/environment";
 import {Leads} from "../../_shared/interfaces/leads";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService {
+export class ClientService {
 
-  API_URL = environment.REST_API_SERVER + '/lead';
+  API_URL = environment.REST_API_SERVER + '/client';
 
-  lead: any;
-
-
-
+  clients: any;
 
   httpOptions = {
     // tslint:disable-next-line:max-line-length
@@ -26,36 +22,46 @@ export class CrudService {
       'Origin': environment.ORIGIN,
       'Access-Control-Allow-Methods': environment.ACCESS_CONTROL_ALLOW_METHODS,
       'Access-Control-Allow-Headers': environment.ACCESS_CONTROL_ALLOW_HEADERS,
-        })
+    })
   };
   constructor( private http: HttpClient, private httpIntercept: TokenInterceptorService) { }
 
 
-  viewAllLeads(): Observable<any>  {
-    return this.http.get(this.API_URL+"/view");
+  viewAllClients(): Observable<any>  {
+    return this.http.get(this.API_URL+"/all");
   }
 
-  addLead(leads: any){
+  addClient(client: any){
 
-    this.lead = {
+    this.clients = {
 
-      fname: leads.fname,
-      lname: leads.lname,
-      email: leads.email,
-      message: leads.message,
-      phoneNumber: leads.phoneNumber,
-      leadSource: leads.leadSource
+      fname: client.fname,
+      lname: client.lname,
+      email: client.email,
+      message: client.message,
+      phoneNumber: client.phoneNumber,
+      leadSource: client.leadSource
 
 
     }
 
 
-    return this.http.post<Leads>(this.API_URL+"/add", this.lead);
+    return this.http.post<Leads>(this.API_URL+"/add", this.clients);
   }
 
- deleteLead(leads: any){
-    return this.http.post(this.API_URL+"/multi_delete", leads);
+  deleteClient(client: any){
+    return this.http.post(this.API_URL+"/multi_delete", client);
   }
+
+
+
+
+
+
+
+
+
+
 
 
 

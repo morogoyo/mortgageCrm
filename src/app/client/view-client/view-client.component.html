@@ -4,8 +4,8 @@
     <div class="card-body">
       <h5 class="card-title">Rene's Awesome Lead Summary </h5>
       <div class="col-md-2">
-      <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addLeadModal)">
-     <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>
+        <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addClientModal)">
+          <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>
       </div>
 
 
@@ -13,14 +13,14 @@
       <table  class="table table-striped table-bordered table-hover">
 
         <thead>
-<!--        <tr>-->
-<!--          <th><button class="button warning">Add Lead</button></th>-->
-<!--          <th></th>-->
-<!--          <th></th>-->
-<!--          <th></th>-->
-<!--          <th></th>-->
-<!--          <th></th>-->
-<!--        </tr>-->
+        <!--        <tr>-->
+        <!--          <th><button class="button warning">Add Lead</button></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--        </tr>-->
         <tr>
           <th scope="col">Select Lead</th>
           <th scope="col">ID#</th>
@@ -35,20 +35,20 @@
 
         </tr>
         </thead>
-<!--        minus-square  user-minus-->
+        <!--        minus-square  user-minus-->
         <tbody >
-        <tr *ngFor="let lead of leads ;index as i">
-          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (click)="leadsToBeDeleted($event , this.i);"></td>
-          <td  scope="row">{{lead.id }}</td>
-          <td scope="row">{{lead.fname || "NA"}}</td>
-          <td scope="row">{{lead.lname || "NA"}}</td>
-          <td>{{lead.email || "NA"}}</td>
-          <td>{{lead.phoneNumber || "NA" }}</td>
+        <tr *ngFor="let client of clients ;index as i">
+          <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>
+          <td  scope="row">{{client.id }}</td>
+          <td scope="row">{{client.fname || "NA"}}</td>
+          <td scope="row">{{client.lname || "NA"}}</td>
+          <td>{{client.email || "NA"}}</td>
+          <td>{{client.phoneNumber || "NA" }}</td>
 
-          <td>{{lead.leadSource || "NA"}}</td>
-          <td>{{lead.message || "NA"}}</td>
-          <td>{{lead.createdDate || "NA"}}</td>
-          <td>{{lead.updatedDate|| "NA"}}</td>
+          <td>{{client.leadSource || "NA"}}</td>
+          <td>{{client.message || "NA"}}</td>
+          <td>{{client.createdDate || "NA"}}</td>
+          <td>{{client.updatedDate|| "NA"}}</td>
 
         </tr>
 
@@ -70,7 +70,7 @@
       <th>Id</th>
       <th>Name</th>
       <th>Email</th>
-      <tr  *ngFor="let display of leadsToDisplay " >
+      <tr  *ngFor="let display of clientsTodDisplay " >
         <td >{{ display?.id || "NA" }}</td>
 
         <td>{{ display?.fname || "NA" }} {{ display?.lname || "NA" }}</td>
@@ -84,11 +84,11 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button') ;displayLeadToBeDeletedInModal() ">Reset Selected Leads</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeLeads()">Confirm Lead Deletion</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeClients()">Confirm Lead Deletion</button>
   </div>
 </ng-template>
 
-<ng-template #addLeadModal let-modal>
+<ng-template #addClientModal let-modal>
   <div class="modal-header">
     <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Leads</h5>
     <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
@@ -129,7 +129,7 @@
 
   </div>
   <div class="modal-footer">
-    </div>
+  </div>
 </ng-template>
 
 

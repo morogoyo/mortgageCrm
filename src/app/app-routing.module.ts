@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {BaseComponent} from './views/layout/base/base.component';
 import {AuthGuard} from './core/guard/auth.guard';
 import {ErrorPageComponent} from './views/pages/error-page/error-page.component';
+import {RoofingModule} from "./roofing/roofing.module";
 
 
 const routes: Routes = [
@@ -12,7 +13,13 @@ const routes: Routes = [
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
-
+      {
+        path: 'client',
+        loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
+      },{
+        path: 'roofing',
+        loadChildren: () => import('./roofing/roofing.module').then(m => m.RoofingModule)
+      },
       {
         path: 'leads',
         loadChildren: () => import('./leads/leads.module').then(m => m.LeadsModule)
@@ -57,7 +64,7 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
-      {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+      {path: 'leads', redirectTo: 'ViewLeadsComponent', pathMatch: 'full'},
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

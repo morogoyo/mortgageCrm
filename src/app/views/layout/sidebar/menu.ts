@@ -2,14 +2,14 @@ import {MenuItem} from './menu.model';
 
 export const MENU: MenuItem[] = [
 
-  {
-    label: 'Main',
-    isTitle: true
-  },{
-    label: 'Dashboard',
-    icon: 'home',
-    link: '/dashboard'
-  },
+  // {
+  //   label: 'Main',
+  //   isTitle: true
+  // },{
+  //   label: 'Dashboard',
+  //   icon: 'home',
+  //   link: '/dashboard'
+  // },
   {
     label: 'CRM',
     isTitle: true
@@ -25,6 +25,26 @@ export const MENU: MenuItem[] = [
       },{
         label: 'add',
         link: '/leads/add',
+      },
+    ]
+  },
+  {
+    label: 'Client View',
+    icon: 'users',
+    link: '',
+    subItems: [
+      {
+        label: 'view',
+        link: '/client',
+      },{
+        label: 'add',
+        link: '/client/add',
+      },{
+        label: 'update',
+        link: '/client/update',
+      },{
+        label: 'delete',
+        link: '/client/delete',
       },
     ]
   },

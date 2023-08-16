@@ -33,18 +33,23 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.clearBrowserDataForThisApplication()
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  username: any = this.Login.get('username')?.value
+
   onLoggedin(e: Event) {
     e.preventDefault();
     this.authService.ProceedLogin(this.Login.value).subscribe(result => {
+
       if (result != "") {
+        console.log(this.Login.get('username')?.value);
         localStorage.setItem('isLoggedin', 'true');
         this.responsedata = result;
-        // localStorage.setItem('token', this.responsedata.token);
-        this.router.navigate(['/'])
+        localStorage.setItem('authenticatedUser', this.responsedata.username);
+        this.router.navigate(['/leads'])
       } else {
         localStorage.setItem('isLoggedin', 'false');
         if (localStorage.getItem('isLoggedin')) {
@@ -52,6 +57,16 @@ export class LoginComponent implements OnInit {
         }
       }
     });
+
+  }
+
+  clearBrowserDataForThisApplication(){
+    localStorage.removeItem('isLoggedin');
+    console.log('logging out');
+    localStorage.removeItem('authenticatedUser');
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('authenticatedUser');
+    sessionStorage.removeItem('token');
 
   }
 }
