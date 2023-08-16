@@ -23,15 +23,11 @@ export class ViewLeadsComponent implements OnInit {
 
   ids: number[] = [0];
 
-
-  // leadsToDisplay: Leads[] = [{id: 0, fname: "", lname: "", leadSource: "", email: "", message: "", phoneNumber: ""}];
-
   leadsToDisplay: Set<Leads> = new Set();
 
   filteredLeadsToDisplay: any[] = [];
 
   count: number = 0;
-
 
   basicModalCloseResult: string = '';
 
