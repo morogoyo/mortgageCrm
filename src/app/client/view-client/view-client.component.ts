@@ -1,29 +1,37 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import {CrudService} from "../../services/leads/crud.service";
-import {Leads} from "../../_shared/interfaces/leads";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
-import {AddLeadsComponent} from "../add-leads/add-leads.component";
 import {FormBuilder} from "@angular/forms";
-
+import {Leads} from "../../_shared/interfaces/leads";
+import {ClientService} from "../../services/client/client.service";
 
 @Component({
-  selector: 'app-view-leads',
-  templateUrl: './view-leads.component.html',
-  styleUrls: ['./view-leads.component.scss']
+  selector: 'app-view-client',
+  templateUrl: './view-client.component.html',
+  styleUrls: ['./view-client.component.scss']
 })
-export class ViewLeadsComponent implements OnInit {
-  constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute,
+export class ViewClientComponent implements OnInit {
+
+  ngOnInit(): void {
+    // const dataTable = new DataTable("#leadsTable");
+    this.getAllClients();
+
+  }
+
+  constructor(private crudService: ClientService, private modalService: NgbModal, private route: ActivatedRoute,
               private router: Router, private fb: FormBuilder) {
   }
 
-  leads: any;
+  ///////////////////////////////////////////////////////////////////////////////
 
-  leadsToRemove: any;
+  clients: any;
+
+  clientsToRemove: any;
 
   ids: number[] = [0];
 
-  leadsToDisplay: Set<Leads> = new Set();
+  clientsTodDisplay: Set<Leads> = new Set();
 
   filteredLeadsToDisplay: any[] = [];
 
@@ -32,30 +40,26 @@ export class ViewLeadsComponent implements OnInit {
   basicModalCloseResult: string = '';
 
 
-  ngOnInit(): void {
-    // const dataTable = new DataTable("#leadsTable");
-    this.getAllLeads();
 
-  }
 
-  getAllLeads() {
-    this.crudService.viewAllLeads().subscribe((data) => {
-      this.leads = data;
+  getAllClients() {
+    this.crudService.viewAllClients().subscribe((data) => {
+      this.clients = data;
     });
   }
 
 
-  leadsToBeDeleted(lead: any, i: number) {
+  deleteClient(client: any, i: number) {
 
-    let id = lead.target.getAttribute("id")
+    let id = client.target.getAttribute("id")
     console.log(id);
     if (!this.ids.includes(id)) {
 
-      this._addLeadToCount(id, i)
+      this._addClientToCount(id, i)
 
     } else {
 
-      this._deleteLeadFromCount(id, i)
+      this._deleteClientFromCount(id, i)
 
     }
 
@@ -66,7 +70,7 @@ export class ViewLeadsComponent implements OnInit {
 
 
 
-     }
+  }
 
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {
@@ -77,26 +81,27 @@ export class ViewLeadsComponent implements OnInit {
   }
 
 
-  removeLeads() {
+  removeClients() {
     console.log(this.ids)
     let filtered = this.ids.filter(function (el) {
       return el != null;
     });
-    this.crudService.deleteLead(filtered).subscribe((data) => {
+    this.crudService.deleteClient(filtered).subscribe((data) => {
       console.log(data)
     })
 
 
-    this._redirectToLeads()
+    this._redirectToClients()
   }
 
-  addedLead: any;
+  addedClient: any;
 
   contactForm = this.fb.group({
     fname: [''],
     lname: [''],
     email: [''],
     leadSource: [''],
+
     phoneNumber: [''],
   });
 
@@ -104,34 +109,37 @@ export class ViewLeadsComponent implements OnInit {
 
   onSubmit() {
     // this.preview = JSON.stringify(this.contactForm.value);
-    this.crudService.addLead(this.contactForm.value).subscribe((leadToSave) => {
-        console.log(leadToSave);
-        this.addedLead = leadToSave;
+    this.crudService.addClient(this.contactForm.value).subscribe((clientToSave) => {
+        console.log(clientToSave);
+        this.addedClient = clientToSave;
 
       }
     );
 
-    this._redirectToLeads();
+    this._redirectToClients();
   }
 
-  _addLeadToCount(id: any, i: any){
+  _addClientToCount(id: any, i: any){
     // console.log("incoming id to leadsToBeDeleted(id))", id);
     this.ids[id] = id; // Id's to be deleted addition
     // console.log("Id # that will be deleted", this.ids[id]);
-    this.leadsToDisplay.add(this.leads[i]);
+    this.clientsTodDisplay.add(this.clients[i]);
     this.count++;
   }
-  _deleteLeadFromCount(id: any, i: any){
+  _deleteClientFromCount(id: any, i: any){
     delete this.ids[id];
     // delete this.leadsToDisplay[i];
-    this.leadsToDisplay.delete(this.leads[i]);
+    this.clientsTodDisplay.delete(this.clients[i]);
     this.count--;
+
   }
 
-  _redirectToLeads() {
+  _redirectToClients() {
     location.reload();
-    this.router.navigate(['/leads']);
+    this.router.navigate(['/clients']);
   }
+
+
+
+
 }
-
-

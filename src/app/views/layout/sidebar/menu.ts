@@ -29,16 +29,25 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
-    label: 'Clients View',
+
+    label: 'Client View',
+
     icon: 'users',
     link: '',
     subItems: [
       {
         label: 'view',
-        link: '/leads',
+
+        link: '/client',
       },{
         label: 'add',
-        link: '/leads/add',
+        link: '/client/add',
+      },{
+        label: 'update',
+        link: '/client/update',
+      },{
+        label: 'delete',
+        link: '/client/delete',
       },
     ]
   },

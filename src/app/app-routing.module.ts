@@ -14,6 +14,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: 'client',
+        loadChildren: () => import('./client/client.module').then(m => m.ClientModule)
+      },{
         path: 'roofing',
         loadChildren: () => import('./roofing/roofing.module').then(m => m.RoofingModule)
       },
