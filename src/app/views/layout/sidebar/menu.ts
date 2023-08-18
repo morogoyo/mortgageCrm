@@ -48,6 +48,27 @@ export const MENU: MenuItem[] = [
       },
     ]
   },
+  {
+    label: 'Roof Estimation',
+    icon: 'home-modern',
+    link: '',
+    subItems: [
+      {
+        label: 'calculator',
+        link: '/roofing/calculator'
+      },
+      // {
+      //   label: 'add',
+      //   link: '/client/add',
+      // },{
+      //   label: 'update',
+      //   link: '/client/update',
+      // },{
+      //   label: 'delete',
+      //   link: '/client/delete',
+      // },
+    ],
+  },
 
   //,
   // {
