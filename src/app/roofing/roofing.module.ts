@@ -7,7 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'calculator',
     component: CalculatorComponent,
     children: [
       {

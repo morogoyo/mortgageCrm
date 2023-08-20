@@ -81,6 +81,8 @@
       </div>
       <div class="col-2">
         <p id="show_wallPlates">Wall Plates = {{wallPlates}}</p>
+        <p id="show_walkpads">Walk Pads = {{walkPadsNeeded}}</p>
+        <p id="show_sealantCaulk">Sealant Caulk = {{sealantCaulk}}</p>
 
       </div>
     </div>
@@ -188,7 +190,7 @@
           <div class="form-group">
             <label for="copingMetalStretch">Copping metal stretch</label>
             <input type="number" class="form-control" [(ngModel)]="copingMetalStretch" id="copingMetalStretch"
-                    placeholder=""
+                    placeholder="" (focusout)="rollCount()"
                    name="coppingMetalStretch">
           </div>
           <div class="form-group">
