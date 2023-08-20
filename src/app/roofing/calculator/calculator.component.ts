@@ -8,33 +8,34 @@ import {Component, OnInit} from '@angular/core';
 export class CalculatorComponent implements OnInit {
 
   // Values to be Set
-  brand: any = "";
-  warranty: any = "";
-  attachmentType: any = "";
-  insulationValue: any = "";
-  deckType: any = "";
-  membraneThickness: any = "";
-  deckAreaSqf: any = "";
-  parapetAreSqf: any = "";
-  rtuLFT: any = "";
-  outsideCorners: any = "";
-  pitchPockets: any = "";
-  closeBoots: any = "";
-  splitBoots: any = "";
-  drains: any = "";
-  downSpoutLFT: any = "";
-  vents: any = "";
-  collectorHeadCount: any = "";
-  walkpadsLFT: any = "";
-  membraneStretch: any = "";
-  copingMetalLFT: any = "";
-  copingMetalStretch: number;
+  brand: any = "Duro Last";
+  warranty: any = "15 YNDL";
+  membraneThickness: number = 50;
+  attachmentType: any = "Mechanically";
+  insulationValue: number = 30;
+  deckType: any = "metal";
+
+  deckAreaSqf: number = 7569;
+  parapetAreSqf: number = 2648;
+  rtuLFT: number = 450;
+  outsideCorners: any = 15;
+  pitchPockets: any = 15;
+  closeBoots: number = 15;
+  splitBoots: number = 15;
+  drains: number = 1;
+  downSpoutLFT: number = 28;
+  vents: number = 1;
+  collectorHeadCount: number = 5;
+  walkpadsLFT: number = 276;
+  membraneStretch: number = 7;
+  copingMetalLFT: number = 782;
+  copingMetalStretch: number = 5;
 
 
   panduitBands: number;
   totalRoofSqf: number;
   screwType: any;
-  totalRoofSQ: any;
+  totalRoofSQ: number;
   screwSize: any;
 
 
@@ -48,18 +49,77 @@ export class CalculatorComponent implements OnInit {
   walkPadsNeeded: number;
   insulationScrews: any;
   pictureFramScrews: any;
-  fieldScrews: any;
+  fieldScrews: number;
   fieldRolls: any;
   mastic: any;
   pictureFrameRolls: any;
-  totalScrews: any;
+  totalScrews: number;
   wallPlates: any;
-  insulationBoardCount: any;
-  insulationScrewCount: any;
+  insulationBoardCount: number;
+  insulationScrewCount: number;
   insulationScrewPlates: any;
   membraneType: any;
-  selantCaulk: number;
+  sealantCaulk: number;
   parapetMembraneScrews: number;
+   pictureFrameSQ: number;
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//   // Values to be Set
+//   brand: any = "";
+//   warranty: any = "";
+//   attachmentType: any = "";
+//   insulationValue: any = "";
+//   deckType: any = "";
+//   membraneThickness: any = "";
+//   deckAreaSqf: any = "";
+//   parapetAreSqf: any = "";
+//   rtuLFT: any = "";
+//   outsideCorners: any = "";
+//   pitchPockets: any = "";
+//   closeBoots: any = "";
+//   splitBoots: any = "";
+//   drains: any = "";
+//   downSpoutLFT: any = "";
+//   vents: any = "";
+//   collectorHeadCount: any = "";
+//   walkpadsLFT: any = "";
+//   membraneStretch: any = "";
+//   copingMetalLFT: any = "";
+//   copingMetalStretch: number;
+//
+//
+//   panduitBands: number;
+//   totalRoofSqf: number;
+//   screwType: any;
+//   totalRoofSQ: any;
+//   screwSize: any;
+//
+//
+//   closeBootsShow: any;
+//
+// // Values to be caluclated
+//   deckSQ: any = "";
+//   parapetSQ: any = "";
+//   pitchPocketFiller: number;
+//   termbarCount: number;
+//   walkPadsNeeded: number;
+//   insulationScrews: any;
+//   pictureFramScrews: any;
+//   fieldScrews: any;
+//   fieldRolls: any;
+//   mastic: any;
+//   pictureFrameRolls: any;
+//   totalScrews: any;
+//   wallPlates: any;
+//   insulationBoardCount: any;
+//   insulationScrewCount: any;
+//   insulationScrewPlates: any;
+//   membraneType: any;
+//   sealantCaulk: number;
+//   parapetMembraneScrews: number;
+//      pictureFrameSQ: number;
 
 
   constructor() {
@@ -79,17 +139,17 @@ export class CalculatorComponent implements OnInit {
   }
 
   totalSQF() {
-    this.totalRoofSqf = parseInt(this.deckAreaSqf) + parseInt(this.parapetAreSqf);
+    this.totalRoofSqf = this.deckAreaSqf + this.parapetAreSqf;
     this.insulationBoardCountCalculations();
-    this.totalSQ();
+    this._totalSQ();
   }
 
-  totalSQ() {
+  _totalSQ() {
     this.totalRoofSQ = this.deckSQ + this.parapetSQ;
   }
 
   typeOfScrew() {
-    if (this.deckType != "wood") {
+    if (this.deckType.toLowerCase() != "wood") {
       this.screwType = "#15";
     } else {
       this.screwType = "#14";
@@ -105,7 +165,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   pvcVents() {
-    if (this.membraneType == "pvc") {
+    if (this.membraneType.toLowerCase() == "pvc") {
       this.vents = this.deckAreaSqf / 1000;
     } else {
       this.vents = 0;
@@ -114,16 +174,18 @@ export class CalculatorComponent implements OnInit {
 
   bootSupplies() {
     this.panduitBands = this.closeBoots + this.splitBoots;
-    this.selantCaulk = this.closeBoots / 2;
+    let totalBootsNeeded = this.panduitBands
+    this.sealantCaulk = totalBootsNeeded / 2;
   }
 
   walkPadsToInstall() {
-    this.walkPadsNeeded = (this.walkpadsLFT / 12) / 60;
+    this.walkPadsNeeded = (this.walkpadsLFT * 12) / 60;
   }
 
   membraneStretchCount() {
     if (this.membraneStretch >= 5) {
-      this.parapetMembraneScrews = (this.copingMetalLFT / 100) * 200
+      this.parapetMembraneScrews = (this.copingMetalLFT / 100) * 200;
+      this.wallPlates = this.parapetMembraneScrews;
     }
   }
 
@@ -135,12 +197,34 @@ export class CalculatorComponent implements OnInit {
   insulationBoardCountCalculations() {
     this.insulationBoardCount = Math.ceil(this.deckSQ / 6.24);
     this.insulationScrewCount = Math.ceil((this.deckSQ / 3.12) * 5);
-    this.insulationScrewPlates = Math.ceil(this.insulationScrews);
-  }
-
-  fieldScrewCalculation(){
+    this.insulationScrewPlates = Math.ceil(this.insulationScrewCount);
 
   }
+
+  rollCount(){
+    this._pictureFrameRolls();
+    this._fieldRollsCount();
+    this._totalScrewCount();
+
+  }
+
+  _pictureFrameRolls(){
+    this.pictureFrameRolls = Math.ceil(this.copingMetalLFT / 100);
+      this.pictureFrameSQ = this.pictureFrameRolls * 500 ;
+
+  }
+
+  _fieldRollsCount(){
+    let leftOverSquares: number = this.totalRoofSQ - this.pictureFrameSQ;
+    this.fieldRolls = leftOverSquares / 1000;
+  }
+
+  _totalScrewCount(){
+   this.totalScrews =  this.insulationScrewCount + this.fieldScrews;
+  }
+
+
+
 
   _saveAllValuesLocaly() {
       localStorage.setItem('#brand', this.brand);
@@ -148,23 +232,23 @@ export class CalculatorComponent implements OnInit {
       localStorage.setItem('#attachmentType', this.attachmentType);
       // localStorage.setItem('#splitBoots', this.split);
       localStorage.setItem('#outsideCorners', this.outsideCorners);
-      localStorage.setItem('#collectorHeadCount', this.collectorHeadCount);
+      localStorage.setItem('#collectorHeadCount', this.collectorHeadCount.toString());
       localStorage.setItem('#pitchPockets', this.pitchPockets);
-      localStorage.setItem('#closeBoots', this.closeBoots);
-      localStorage.setItem('#drains', this.drains);
-      localStorage.setItem('#vents', this.vents);
+      localStorage.setItem('#closeBoots', this.closeBoots.toString());
+      localStorage.setItem('#drains', this.drains.toString());
+      localStorage.setItem('#vents', this.vents.toString());
       // localStorage.setItem('#walkpads', this.walkPadsNeeded);
-      localStorage.setItem('#membraneThickness', this.membraneThickness);
-      localStorage.setItem('#splitBootsShow', this.splitBoots);
+      localStorage.setItem('#membraneThickness', this.membraneThickness.toString());
+      localStorage.setItem('#splitBootsShow', this.splitBoots.toString());
       localStorage.setItem('#wallPlates', this.wallPlates);
-      localStorage.setItem('#coppingMetalLFT', this.copingMetalLFT);
+      localStorage.setItem('#coppingMetalLFT', this.copingMetalLFT.toString());
       // localStorage.setItem('#scupper', this.scupper);
       // localStorage.setItem('#overflow', this.overflow);
       localStorage.setItem('#fieldRolls', this.fieldRolls);
       // localStorage.setItem('#fieldRollsShow', this.fieldRollsShow);
       // localStorage.setItem('#deckAreaSqf', this.deckSqf);
       // localStorage.setItem('#parapetAreSqf',this.parapetSqf);
-      localStorage.setItem('#fieldScrews', this.fieldScrews);
+      localStorage.setItem('#fieldScrews', this.fieldScrews.toString());
   }
 
 
