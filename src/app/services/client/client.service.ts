@@ -34,18 +34,13 @@ export class ClientService {
   addClient(client: any){
 
     this.clients = {
-
       fname: client.fname,
       lname: client.lname,
       email: client.email,
       message: client.message,
       phoneNumber: client.phoneNumber,
       leadSource: client.leadSource
-
-
     }
-
-
     return this.http.post<Leads>(this.API_URL+"/add", this.clients);
   }
 

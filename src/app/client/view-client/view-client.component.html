@@ -90,39 +90,14 @@
 
 <ng-template #addClientModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Leads</h5>
+    <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Client</h5>
     <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
   </div>
   <div class="modal-body">
     <p>Leads</p>
     <div class="container">
-      <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label for="fname" class="form-label">First Name</label>
-          <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">
-        </div>
-        <div class="mb-3">
-          <label for="lname" class="form-label">Last Name</label>
-          <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
-        </div>
-        <div class="mb-3">
-          <label for="phoneNumber" class="form-label">Phone Number</label>
-          <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" autocomplete="off" placeholder="Phone Number">
-        </div>
-        <div class="mb-3">
-          <label for="leadSource" class="form-label">Lead Source</label>
-          <input type="text" class="form-control" formControlName="leadSource" id="leadSource" autocomplete="off" placeholder="Lead Source">
-        </div>
-        <div class="form-check mb-3">
 
-        </div>
-        <button type="submit" class="btn btn-primary me-2" (click)="modal.close('by: close icon'); ">Submit</button>
-
-      </form>
+      <app-add-client></app-add-client>
 
     </div>
 

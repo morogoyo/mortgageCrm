@@ -37,18 +37,17 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         label: 'view',
-
-        link: '/client',
+        link: '/client'
       },{
 
         label: 'add',
-        link: '/client/add',
+        link: '/client/add'
       },{
         label: 'update',
-        link: '/client/update',
+        link: '/client/update'
       },{
         label: 'delete',
-        link: '/client/delete',
+        link: '/client/delete'
       },
     ]
   },
