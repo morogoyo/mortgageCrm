@@ -3,6 +3,7 @@ import {CrudService} from "../../services/leads/crud.service";
 import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../../services/client/client.service";
 import {Router} from "@angular/router";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-add-client',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class AddClientComponent implements OnInit {
 
-  constructor(private clientService: ClientService, private fb: FormBuilder, private router: Router) {
+  constructor(private clientService: ClientService, private fb: FormBuilder, private modalService: NgbModal, private router: Router) {
 
   }
 
@@ -59,8 +60,8 @@ export class AddClientComponent implements OnInit {
   }
 
   _redirectToClients() {
-    // location.reload();
     this.router.navigate(['/client']);
+      location.reload();
   }
 
 }
