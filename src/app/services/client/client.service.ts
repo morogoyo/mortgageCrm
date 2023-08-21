@@ -45,7 +45,7 @@ export class ClientService {
   }
 
   deleteClient(client: any){
-    return this.http.post(this.API_URL+"/multi_delete", client);
+    return this.http.post(this.API_URL+"/delete", client);
   }
 
 

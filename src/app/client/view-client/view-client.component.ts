@@ -1,11 +1,8 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {CrudService} from "../../services/leads/crud.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
-import {Leads} from "../../_shared/interfaces/leads";
 import {ClientService} from "../../services/client/client.service";
-import {AddClientComponent} from "../add-client/add-client.component";
 import {Clients} from "../../_shared/interfaces/clients";
 
 @Component({
@@ -51,49 +48,12 @@ export class ViewClientComponent implements OnInit {
   }
 
 
-  deleteClient(client: any, i: number) {
-
-    let id = client.target.getAttribute("id")
-    console.log(id);
-    if (!this.ids.includes(id)) {
-
-      this._addClientToCount(id, i)
-
-    } else {
-
-      this._deleteClientFromCount(id, i)
-
-    }
-
-  }
-
-
-  displayLeadToBeDeletedInModal() {
-
-
-
-  }
-
   openBasicModal(content: TemplateRef<any>) {
     this.modalService.open(content, {}).result.then((result) => {
       this.basicModalCloseResult = "Modal closed" + result
     }).catch((res) => {
     });
 
-  }
-
-
-  removeClients() {
-    console.log(this.ids)
-    let filtered = this.ids.filter(function (el) {
-      return el != null;
-    });
-    this.crudService.deleteClient(filtered).subscribe((data) => {
-      console.log(data)
-    })
-
-
-    this._redirectToClients()
   }
 
   addedClient: any;
@@ -139,6 +99,41 @@ export class ViewClientComponent implements OnInit {
     // console.log("Id # that will be deleted", this.ids[id]);
     this.clientsTodDisplay.add(this.clients[i]);
     this.count++;
+  }
+
+  deleteClient(client: any, i: number) {
+
+    let id = client.target.getAttribute("id")
+    console.log(id);
+    if (!this.ids.includes(id)) {
+
+      this._addClientToCount(id, i)
+
+    } else {
+
+      this._deleteClientFromCount(id, i)
+
+    }
+
+  }
+
+
+  displayLeadToBeDeletedInModal() {
+  }
+
+
+  removeClients() {
+    console.log(this.ids)
+    let filtered = this.ids.filter(function (el) {
+      return el != null;
+    });
+    console.log(filtered);
+    this.crudService.deleteClient(filtered).subscribe((data) => {
+      console.log(data)
+    })
+
+
+    // this._redirectToClients()
   }
   _deleteClientFromCount(id: any, i: any){
     delete this.ids[id];
