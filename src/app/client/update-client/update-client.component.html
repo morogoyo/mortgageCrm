@@ -1,1 +1,123 @@
-<p>update-client works!</p>
+<!--<div class="col-lg-12 col-md-12 mb-4">-->
+<!--  <div class="card">-->
+
+<!--    <div class="card-body col-lg-12 col-md-12 mb-4">-->
+<!--      <h5 class="card-title">Rene's Awesome Lead Summary </h5>-->
+<!--      <div class="col-md-3">-->
+<!--        <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addClientModal)">-->
+<!--          &lt;!&ndash;          <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>&ndash;&gt;-->
+<!--        </div>-->
+
+
+
+<!--        <table  class="table table-striped table-bordered table-hover">-->
+<!--          &lt;!&ndash;        minus-square  user-minus&ndash;&gt;-->
+<!--          <tbody>-->
+<!--          <tr>-->
+<!--            <th >Select Lead</th>-->
+<!--            <th>Id</th>-->
+<!--            <th>Name</th>-->
+<!--            <th>Email</th>-->
+<!--            <th>Address</th>-->
+<!--            <th>City</th>-->
+<!--            <th>State</th>-->
+<!--            <th>zip</th>-->
+<!--            &lt;!&ndash;        <th>Birthday</th>&ndash;&gt;-->
+<!--            <th>Job Title</th>-->
+<!--            &lt;!&ndash;        <th>Demographic Info</th>&ndash;&gt;-->
+<!--            <th>Company Name</th>-->
+<!--            &lt;!&ndash;        <th>Marital Status</th>&ndash;&gt;-->
+<!--            &lt;!&ndash;        <th># Children</th>&ndash;&gt;-->
+<!--            <th>created Date</th>-->
+<!--            &lt;!&ndash;        <th>update Date</th>&ndash;&gt;-->
+
+<!--          <tr *ngFor="let client of clients ;index as i">-->
+<!--            <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>-->
+<!--            <td>{{ client?.id|| "NA"  }}</td>-->
+<!--            <td>{{ client?.fname || "NA" }} {{ client?.lname || "NA" }}</td>-->
+<!--            <td>{{ client?.email|| "NA"  }}</td>-->
+<!--            <td>{{ client?.address|| "NA"  }}</td>-->
+<!--            <td>{{ client?.city|| "NA"  }}</td>-->
+<!--            <td>{{ client?.state|| "NA"  }}</td>-->
+<!--            <td>{{ client?.zip|| "NA"  }}</td>-->
+<!--            &lt;!&ndash;          <td>{{ client?.birthDay|| "NA"  }}</td>&ndash;&gt;-->
+<!--            <td>{{ client?.jobTitle|| "NA"  }}</td>-->
+<!--            &lt;!&ndash;          <td>{{ client?.demographicInfo|| "NA"  }}</td>&ndash;&gt;-->
+<!--            <td>{{ client?.companyName|| "NA"  }}</td>-->
+<!--            &lt;!&ndash;          <td>{{ client?.maritalStatus|| "NA"  }}</td>&ndash;&gt;-->
+<!--            &lt;!&ndash;          <td>{{ client?.numberOfChildren|| "NA"  }}</td>&ndash;&gt;-->
+<!--            <td>{{ client?.createdDate|| "NA"  }}</td>-->
+<!--            &lt;!&ndash;          <td>{{ client?.updateDate|| "NA"  }}</td>&ndash;&gt;-->
+
+
+
+
+
+
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--  <ng-template #basicModal let-modal>-->
+<!--    <div class="modal-header">-->
+<!--      <h5 class="modal-title" id="DeleteLeadModalLabel">Deleting The following Leads</h5>-->
+<!--      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>-->
+<!--    </div>-->
+<!--    <div class="modal-body">-->
+<!--      <p>Leads</p>-->
+<!--      <table  class="table table-striped table-bordered table-hover">-->
+<!--        <tbody>-->
+<!--        <th>Id</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Email</th>-->
+<!--        <tr  *ngFor="let display of clientsTodDisplay " >-->
+<!--          <td >{{ display?.id || "NA" }}</td>-->
+
+<!--          <td>{{ display?.fname || "NA" }} {{ display?.lname || "NA" }}</td>-->
+
+<!--          <td>{{ display?.email|| "NA"  }}</td>-->
+
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+
+<!--    </div>-->
+<!--    <div class="modal-footer">-->
+<!--      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button') ;displayLeadToBeDeletedInModal() ">Reset Selected Leads</button>-->
+<!--      <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeClients()">Confirm Lead Deletion</button>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--  <ng-template #addClientModal let-modal>-->
+<!--    <div class="modal-header">-->
+<!--      <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Client</h5>-->
+<!--      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>-->
+<!--    </div>-->
+<!--    <div class="modal-body">-->
+<!--      <p>Leads</p>-->
+<!--      <div class="container">-->
+
+<!--        <app-add-client></app-add-client>-->
+
+<!--      </div>-->
+
+
+<!--    </div>-->
+<!--    <div class="modal-footer">-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+
+
+
+
+
+
+
+
+
+
+
