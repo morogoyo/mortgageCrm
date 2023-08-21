@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CrudService} from "../../services/leads/crud.service";
 import {FormBuilder} from "@angular/forms";
+import {ClientService} from "../../services/client/client.service";
+import {Router} from "@angular/router";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-add-client',
@@ -9,7 +12,7 @@ import {FormBuilder} from "@angular/forms";
 })
 export class AddClientComponent implements OnInit {
 
-  constructor(private leadService: CrudService, private fb: FormBuilder) {
+  constructor(private clientService: ClientService, private fb: FormBuilder, private modalService: NgbModal, private router: Router) {
 
   }
 
@@ -46,15 +49,20 @@ export class AddClientComponent implements OnInit {
 
   onSubmit() {
     // this.preview = JSON.stringify(this.contactForm.value);
-    this.leadService.addLead(this.contactForm.value).subscribe((clientToSave) => {
+    this.clientService.addClient(this.contactForm.value).subscribe((clientToSave) => {
         console.log(clientToSave);
         this.addedClient = clientToSave;
+        this._redirectToClients();
       }
     );
 
 
   }
 
+  _redirectToClients() {
+    this.router.navigate(['/client']);
+      location.reload();
+  }
 
 }
 

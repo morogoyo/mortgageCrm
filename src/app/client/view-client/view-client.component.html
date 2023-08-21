@@ -11,51 +11,54 @@
 
 
       <table  class="table table-striped table-bordered table-hover">
-
-        <thead>
-        <!--        <tr>-->
-        <!--          <th><button class="button warning">Add Lead</button></th>-->
-        <!--          <th></th>-->
-        <!--          <th></th>-->
-        <!--          <th></th>-->
-        <!--          <th></th>-->
-        <!--          <th></th>-->
-        <!--        </tr>-->
-        <tr>
-          <th scope="col">Select Lead</th>
-          <th scope="col">ID#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Email</th>
-          <th scope="col">phoneNumber</th>
-          <th scope="col">Lead Source</th>
-          <th scope="col">Message</th>
-          <th scope="col">Created Date</th>
-          <th scope="col">Updated Date</th>
-
-        </tr>
-        </thead>
         <!--        minus-square  user-minus-->
-        <tbody >
+        <tbody>
+        <tr>
+        <th >Select Lead</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>zip</th>
+        <th>Birthday</th>
+        <th>Job Title</th>
+        <th>Demographic Info</th>
+        <th>Company Name</th>
+        <th>Marital Status</th>
+        <th># Children</th>
+        <th>created Date</th>
+        <th>update Date</th>
+
         <tr *ngFor="let client of clients ;index as i">
           <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>
-          <td  scope="row">{{client.id }}</td>
-          <td scope="row">{{client.fname || "NA"}}</td>
-          <td scope="row">{{client.lname || "NA"}}</td>
-          <td>{{client.email || "NA"}}</td>
-          <td>{{client.phoneNumber || "NA" }}</td>
+          <td>{{ client?.id|| "NA"  }}</td>
+          <td>{{ client?.fname || "NA" }} {{ client?.lname || "NA" }}</td>
+          <td>{{ client?.email|| "NA"  }}</td>
+          <td>{{ client?.address|| "NA"  }}</td>
+          <td>{{ client?.city|| "NA"  }}</td>
+          <td>{{ client?.state|| "NA"  }}</td>
+          <td>{{ client?.zip|| "NA"  }}</td>
+          <td>{{ client?.birthDay|| "NA"  }}</td>
+          <td>{{ client?.jobTitle|| "NA"  }}</td>
+          <td>{{ client?.demographicInfo|| "NA"  }}</td>
+          <td>{{ client?.companyName|| "NA"  }}</td>
+          <td>{{ client?.maritalStatus|| "NA"  }}</td>
+          <td>{{ client?.numberOfChildren|| "NA"  }}</td>
+          <td>{{ client?.createdDate|| "NA"  }}</td>
+          <td>{{ client?.updateDate|| "NA"  }}</td>
 
-          <td>{{client.leadSource || "NA"}}</td>
-          <td>{{client.message || "NA"}}</td>
-          <td>{{client.createdDate || "NA"}}</td>
-          <td>{{client.updatedDate|| "NA"}}</td>
 
-        </tr>
+
+
+
 
         </tbody>
       </table>
     </div>
   </div>
+
 </div>
 
 <ng-template #basicModal let-modal>
@@ -90,39 +93,14 @@
 
 <ng-template #addClientModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Leads</h5>
+    <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Client</h5>
     <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
   </div>
   <div class="modal-body">
     <p>Leads</p>
     <div class="container">
-      <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label for="fname" class="form-label">First Name</label>
-          <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">
-        </div>
-        <div class="mb-3">
-          <label for="lname" class="form-label">Last Name</label>
-          <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
-        </div>
-        <div class="mb-3">
-          <label for="phoneNumber" class="form-label">Phone Number</label>
-          <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" autocomplete="off" placeholder="Phone Number">
-        </div>
-        <div class="mb-3">
-          <label for="leadSource" class="form-label">Lead Source</label>
-          <input type="text" class="form-control" formControlName="leadSource" id="leadSource" autocomplete="off" placeholder="Lead Source">
-        </div>
-        <div class="form-check mb-3">
 
-        </div>
-        <button type="submit" class="btn btn-primary me-2" (click)="modal.close('by: close icon'); ">Submit</button>
-
-      </form>
+      <app-add-client></app-add-client>
 
     </div>
 

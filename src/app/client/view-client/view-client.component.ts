@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
 import {Leads} from "../../_shared/interfaces/leads";
 import {ClientService} from "../../services/client/client.service";
+import {AddClientComponent} from "../add-client/add-client.component";
+import {Clients} from "../../_shared/interfaces/clients";
 
 @Component({
   selector: 'app-view-client',
@@ -31,7 +33,7 @@ export class ViewClientComponent implements OnInit {
 
   ids: number[] = [0];
 
-  clientsTodDisplay: Set<Leads> = new Set();
+  clientsTodDisplay: Set<Clients> = new Set();
 
   filteredLeadsToDisplay: any[] = [];
 
@@ -97,12 +99,24 @@ export class ViewClientComponent implements OnInit {
   addedClient: any;
 
   contactForm = this.fb.group({
-    fname: [''],
-    lname: [''],
-    email: [''],
-    leadSource: [''],
+      id: [''],
+      email: [''],
+      fname: [''],
+      lname: [''],
+      address: [''],
+      zip: [''],
+      city: [''],
+      state: [''],
+      phoneNumber: [''],
+      birthDay: [''],
+      jobTitle: [''],
+      demographicInfo: [''],
+      companyName: [''],
 
-    phoneNumber: [''],
+      maritalStatus: [''],
+      numberOfChildren: [''],
+      createdDate: [''],
+      updateDate: ['']
   });
 
   preview: String
