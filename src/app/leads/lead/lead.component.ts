@@ -17,7 +17,7 @@ export class LeadComponent implements OnInit {
   passedInLead: any;
 
 
-  constructor(private LeadData: LeadDataService, private toClient: ClientService, private router: Router) { }
+  constructor(private LeadData: LeadDataService, private toClient: ClientService, private router: Router, private leadService: CrudService) { }
 
   ngOnInit(): void {
   this.LeadData.lead.subscribe(data => {
@@ -28,8 +28,10 @@ export class LeadComponent implements OnInit {
   //Save lead to Client
   convertToClient(){
   this.toClient.addClient(this.passedInLead).subscribe(); //Save lead to Client
-    // this.passedInLead.isClient = "true";
-
+    this.passedInLead.isClient = true
+    console.log(this.passedInLead.isClient);
+    this.leadService.addLead(this.passedInLead).subscribe();
+    // TODO need to create update controller for leads so that I can switch the boolean value per lead
     // this.addLeads.addedLead(this.passedInLead);
     this.router.navigate(['/client'])
       .then(() => {
