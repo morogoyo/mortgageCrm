@@ -6,6 +6,7 @@ import {ViewLeadsComponent} from './view-leads/view-leads.component';
 import { DeleteLeadsComponent } from './delete-leads/delete-leads.component';
 import {ModalComponent} from "../views/pages/ui-components/modal/modal.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LeadComponent } from './lead/lead.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,18 @@ const routes: Routes = [
       }
     ]
   }
+,
+  {
+    path: 'lead',
+    component: LeadComponent,
+    children: [
+      {
+        path: 'lead',
+        redirectTo: 'lead',
+        pathMatch: 'full',
+      }
+    ]
+  }
 
 ]
 
@@ -48,7 +61,8 @@ const routes: Routes = [
   declarations: [
     AddLeadsComponent,
     ViewLeadsComponent,
-    DeleteLeadsComponent
+    DeleteLeadsComponent,
+    LeadComponent
   ],
     imports: [
         CommonModule,

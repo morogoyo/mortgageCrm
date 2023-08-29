@@ -2,9 +2,9 @@
   <div class="card">
 
     <div class="card-body col-lg-12 col-md-12 mb-4">
-      <h5 class="card-title">Rene's Awesome Lead Summary </h5>
+      <h5 class="card-title">Rene's Awesome Client Summary </h5>
       <div class="col-md-3">
-        <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addClientModal)">
+        <div><input  class="btn btn-primary" type="submit" value="New Client"  (click)="openBasicModal(addClientModal)">
 <!--          <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>-->
       </div>
 
@@ -14,7 +14,7 @@
         <!--        minus-square  user-minus-->
         <tbody>
         <tr>
-        <th >Select Lead</th>
+        <th ></th>
         <th>Id</th>
         <th>Email</th>
           <th>Name</th>
@@ -34,6 +34,7 @@
         <tr *ngFor="let client of clients ;index as i">
           <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>
           <td>{{ client?.id|| "NA"  }}</td>
+
           <td><a href="/client/{{client.email}}">{{ client?.email|| "NA"  }}</a></td>
           <td>{{ client?.fname || "NA" }} {{ client?.lname || "NA" }}</td>
           <td>{{ client?.address|| "NA"  }}</td>
@@ -86,8 +87,8 @@
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button') ;displayLeadToBeDeletedInModal() ">Reset Selected Leads</button>
-    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeClients()">Confirm Lead Deletion</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button') ;displayLeadToBeDeletedInModal() ">Reset Selected Clients</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeClients()">Confirm Client Deletion</button>
   </div>
 </ng-template>
 

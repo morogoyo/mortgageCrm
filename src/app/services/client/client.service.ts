@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenInterceptorService} from "../authorization/token-interceptor.service";
 import {Observable} from "rxjs";
 import {Leads} from "../../_shared/interfaces/leads";
+import {Clients} from "../../_shared/interfaces/clients";
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class ClientService {
   }
 
   addClient(client: any){
-
+    console.log(client);
     this.clients = {
       fname: client.fname,
       lname: client.lname,

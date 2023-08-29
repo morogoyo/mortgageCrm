@@ -5,6 +5,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AddLeadsComponent} from "../add-leads/add-leads.component";
 import {FormBuilder} from "@angular/forms";
+import {LeadDataService} from "../../services/internal/lead-data.service";
 
 
 @Component({
@@ -14,12 +15,12 @@ import {FormBuilder} from "@angular/forms";
 })
 export class ViewLeadsComponent implements OnInit {
   constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute,
-              private router: Router, private fb: FormBuilder) {
+              private router: Router, private fb: FormBuilder, private leadData: LeadDataService) {
   }
 
   leads: any;
 
-  leadsToRemove: any;
+  leadsToPassIn: any;
 
   ids: number[] = [0];
 
@@ -34,6 +35,7 @@ export class ViewLeadsComponent implements OnInit {
 
   ngOnInit(): void {
     // const dataTable = new DataTable("#leadsTable");
+
     this.getAllLeads();
 
   }
@@ -132,6 +134,13 @@ export class ViewLeadsComponent implements OnInit {
     location.reload();
     this.router.navigate(['/leads']);
   }
-}
 
+
+  leadDataTransfer(lead: any) {
+    this.leadsToPassIn = lead;
+    this.leadData.leadInfo(this.leadsToPassIn);
+    console.log(this.leadsToPassIn);
+
+  }
+}
 
