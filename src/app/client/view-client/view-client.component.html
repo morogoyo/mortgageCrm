@@ -15,9 +15,9 @@
         <tbody>
         <tr>
         <th ></th>
-        <th>Id</th>
-        <th>Email</th>
           <th>Name</th>
+        <th>Email</th>
+
           <th>Address</th>
         <th>City</th>
         <th>State</th>
@@ -28,25 +28,27 @@
         <th>Company Name</th>
 <!--        <th>Marital Status</th>-->
 <!--        <th># Children</th>-->
+          <th>Id</th>
         <th>created Date</th>
 <!--        <th>update Date</th>-->
 
         <tr *ngFor="let client of clients ;index as i">
           <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>
-          <td>{{ client?.id|| "NA"  }}</td>
 
-          <td><a href="/client/{{client.email}}">{{ client?.email|| "NA"  }}</a></td>
           <td>{{ client?.fname || "NA" }} {{ client?.lname || "NA" }}</td>
+          <td><a href="/client/{{client.email}}">{{ client?.email|| "NA"  }}</a></td>
           <td>{{ client?.address|| "NA"  }}</td>
           <td>{{ client?.city|| "NA"  }}</td>
           <td>{{ client?.state|| "NA"  }}</td>
           <td>{{ client?.zip|| "NA"  }}</td>
-<!--          <td>{{ client?.birthDay|| "NA"  }}</td>-->
+
+          <!--          <td>{{ client?.birthDay|| "NA"  }}</td>-->
           <td>{{ client?.jobTitle|| "NA"  }}</td>
 <!--          <td>{{ client?.demographicInfo|| "NA"  }}</td>-->
           <td>{{ client?.companyName|| "NA"  }}</td>
 <!--          <td>{{ client?.maritalStatus|| "NA"  }}</td>-->
 <!--          <td>{{ client?.numberOfChildren|| "NA"  }}</td>-->
+          <td>{{ client?.id|| "NA"  }}</td>
           <td>{{ client?.createdDate|| "NA"  }}</td>
 <!--          <td>{{ client?.updateDate|| "NA"  }}</td>-->
 

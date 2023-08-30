@@ -38,17 +38,20 @@
 <!--        minus-square  user-minus-->
         <tbody>
         <ng-container  *ngFor="let lead of leads ;index as i">
-        <tr *ngIf="lead.isClient != false" >
+        <tr *ngIf="lead.isClient != true" >
 
           <td ><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (click)="leadsToBeDeleted($event , this.i);">          </td>
 
           <td>{{lead.id }}</td>
           <td>
-            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.fname || "NA"}}</a></td>
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.fname || "NA"}}
+            </a></td>
           <td>
-            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.lname || "NA"}} </a></td>
-          <td (click)="leadDataTransfer(lead)"><a routerLink="/leads/lead"
-                                                  (click)="leadDataTransfer(lead)"> {{lead.email || "NA"}}  </a></td>
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.lname || "NA"}}
+            </a></td>
+          <td >
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)"> {{lead.email || "NA"}}
+            </a></td>
           <td>
             {{lead.phoneNumber || "NA" }}
           </td>

@@ -30,7 +30,7 @@ export class LeadComponent implements OnInit {
   this.toClient.addClient(this.passedInLead).subscribe(); //Save lead to Client
     this.passedInLead.isClient = true
     console.log(this.passedInLead.isClient);
-    this.leadService.addLead(this.passedInLead).subscribe();
+    this.leadService.updateLead(this.passedInLead).subscribe();
     // TODO need to create update controller for leads so that I can switch the boolean value per lead
     // this.addLeads.addedLead(this.passedInLead);
     this.router.navigate(['/client'])

@@ -62,7 +62,7 @@ export class CrudService {
       leadSource: leads.leadSource,
       isClient: leads.isClient
     }
-    return this.http.post<Leads>(this.API_URL+"/update", this.lead);
+    return this.http.put<Leads>(this.API_URL+"/update", this.lead);
   }
 
 
