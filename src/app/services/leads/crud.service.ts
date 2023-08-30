@@ -39,20 +39,35 @@ export class CrudService {
   addLead(leads: any){
 
     this.lead = {
-
       fname: leads.fname,
       lname: leads.lname,
       email: leads.email,
       message: leads.message,
       phoneNumber: leads.phoneNumber,
-      leadSource: leads.leadSource
-
-
+      leadSource: leads.leadSource,
+      isClient: leads.isClient
     }
-
-
     return this.http.post<Leads>(this.API_URL+"/add", this.lead);
   }
+
+
+  updateLead(leads: any){
+
+    this.lead = {
+      fname: leads.fname,
+      lname: leads.lname,
+      email: leads.email,
+      message: leads.message,
+      phoneNumber: leads.phoneNumber,
+      leadSource: leads.leadSource,
+      isClient: leads.isClient
+    }
+    return this.http.post<Leads>(this.API_URL+"/update", this.lead);
+  }
+
+
+
+
 
  deleteLead(leads: any){
     return this.http.post(this.API_URL+"/multi_delete", leads);
