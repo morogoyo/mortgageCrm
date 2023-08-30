@@ -45,7 +45,7 @@ export class CrudService {
       message: leads.message,
       phoneNumber: leads.phoneNumber,
       leadSource: leads.leadSource,
-      isClient: leads.isClient
+      client: leads.client
     }
     return this.http.post<Leads>(this.API_URL+"/add", this.lead);
   }
@@ -60,7 +60,7 @@ export class CrudService {
       message: leads.message,
       phoneNumber: leads.phoneNumber,
       leadSource: leads.leadSource,
-      isClient: leads.isClient
+      client: leads.client
     }
     return this.http.put<Leads>(this.API_URL+"/update", this.lead);
   }
