@@ -7,6 +7,7 @@ export interface Leads {
   lname: string;
   message: string;
   phoneNumber: string;
+  isClient: boolean;
 
 
 }

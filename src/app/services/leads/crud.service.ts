@@ -5,6 +5,7 @@ import {TokenInterceptorService} from "../authorization/token-interceptor.servic
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {Leads} from "../../_shared/interfaces/leads";
+import {Clients} from "../../_shared/interfaces/clients";
 
 @Injectable({
   providedIn: 'root'
@@ -38,24 +39,60 @@ export class CrudService {
   addLead(leads: any){
 
     this.lead = {
-
       fname: leads.fname,
       lname: leads.lname,
       email: leads.email,
       message: leads.message,
       phoneNumber: leads.phoneNumber,
-      leadSource: leads.leadSource
-
-
+      leadSource: leads.leadSource,
+      isClient: leads.isClient
     }
-
-
     return this.http.post<Leads>(this.API_URL+"/add", this.lead);
   }
+
+
+  updateLead(leads: any){
+
+    this.lead = {
+      fname: leads.fname,
+      lname: leads.lname,
+      email: leads.email,
+      message: leads.message,
+      phoneNumber: leads.phoneNumber,
+      leadSource: leads.leadSource,
+      isClient: leads.isClient
+    }
+    return this.http.put<Leads>(this.API_URL+"/update", this.lead);
+  }
+
+
+
+
 
  deleteLead(leads: any){
     return this.http.post(this.API_URL+"/multi_delete", leads);
   }
+
+
+
+
+  // makeLeadIntoClient(lead: Clients){
+  //
+  //   this.lead = {
+  //
+  //     fname: lead.fname,
+  //     lname: lead.lname,
+  //     email: lead.email,
+  //     message: lead.message,
+  //     phoneNumber: lead.phoneNumber,
+  //     leadSource: lead.leadSource
+  //
+  //
+  //   }
+  //
+  //
+  //   return this.http.post<Leads>(this.API_URL+"/add", this.lead);
+  // }
 
 
 

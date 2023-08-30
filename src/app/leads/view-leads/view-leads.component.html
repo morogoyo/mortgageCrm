@@ -22,7 +22,7 @@
 <!--          <th></th>-->
 <!--        </tr>-->
         <tr>
-          <th scope="col">Select Lead</th>
+          <th scope="col"></th>
           <th scope="col">ID#</th>
           <th scope="col">First</th>
           <th scope="col">Last</th>
@@ -36,23 +36,43 @@
         </tr>
         </thead>
 <!--        minus-square  user-minus-->
-        <tbody >
-        <tr *ngFor="let lead of leads ;index as i">
-          <td><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (click)="leadsToBeDeleted($event , this.i);"></td>
-          <td  scope="row">{{lead.id }}</td>
-          <td scope="row">{{lead.fname || "NA"}}</td>
-          <td scope="row">{{lead.lname || "NA"}}</td>
-          <td>{{lead.email || "NA"}}</td>
-          <td>{{lead.phoneNumber || "NA" }}</td>
+        <tbody>
+        <ng-container  *ngFor="let lead of leads ;index as i">
+        <tr *ngIf="lead.isClient != true" >
 
-          <td>{{lead.leadSource || "NA"}}</td>
-          <td>{{lead.message || "NA"}}</td>
-          <td>{{lead.createdDate || "NA"}}</td>
-          <td>{{lead.updatedDate|| "NA"}}</td>
+          <td ><input type="checkbox" id="{{lead.id}}" name="{{lead.id}}" (click)="leadsToBeDeleted($event , this.i);">          </td>
+
+          <td>{{lead.id }}</td>
+          <td>
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.fname || "NA"}}
+            </a></td>
+          <td>
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)">{{lead.lname || "NA"}}
+            </a></td>
+          <td >
+            <a routerLink="/leads/lead" (click)="leadDataTransfer(lead)"> {{lead.email || "NA"}}
+            </a></td>
+          <td>
+            {{lead.phoneNumber || "NA" }}
+          </td>
+
+          <td>
+            {{lead.leadSource || "NA"}}
+          </td>
+          <td>
+            {{lead.message || "NA"}}
+          </td>
+          <td>
+            {{lead.createdDate || "NA"}}
+          </td>
+          <td>
+            {{lead.updatedDate || "NA"}}
+         </td>
 
         </tr>
-
+        </ng-container>
         </tbody>
+
       </table>
     </div>
   </div>
@@ -130,6 +150,22 @@
   </div>
   <div class="modal-footer">
     </div>
+</ng-template>
+
+
+<ng-template #makeClient let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="makeClient">Deleting The following Leads</h5>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+   <app-lead ></app-lead>
+    </div>
+
+
+
+  <div class="modal-footer">
+  </div>
 </ng-template>
 
 

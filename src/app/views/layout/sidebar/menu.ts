@@ -25,6 +25,9 @@ export const MENU: MenuItem[] = [
       },{
         label: 'add',
         link: '/leads/add',
+      },{
+        label: 'lead info',
+        link: '/leads/lead'
       },
     ]
   },

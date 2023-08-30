@@ -1,0 +1,17 @@
+<div class="card">
+<!--  <img src="..." class="card-img-top" alt="No picture as of Now Bitch">-->
+  <div class="card-body">
+    <h2>Convert Lead to Client</h2>
+    <br>
+    <h5 class="card-title">DATA From Parent: </h5>
+    <p>Name: {{passedInLead.fname}}</p>
+    <p>Last Name: {{passedInLead.lname}}</p>
+    <p>Email: {{passedInLead.email}}</p>
+    <p>Phone Number: {{passedInLead.phoneNumber}}</p>
+    <p>LeadSource: {{passedInLead.leadSource}}</p>
+    <p>Message: {{passedInLead.message}}</p>
+    <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <input type="button" (click)="convertToClient()" class="btn btn-primary" value="Convert Lead To Client">
+  </div>
+</div>
+
