@@ -12,8 +12,11 @@ export class TokenInterceptorService {
     let authservice=this.inject.get(AuthService);
     let jwtToken = req.clone({
       setHeaders: {
-        Authorization: authservice.GetToken()
-        // Authorization: 'bearer '+authservice.GetToken()
+        "Authorization": authservice.GetToken(),
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+       "Access-Control-Allow-Headers": "Content-Type"
+
       }
     });
     return next.handle(jwtToken);

@@ -23,7 +23,7 @@ export class CrudService {
     // tslint:disable-next-line:max-line-length
     headers: new HttpHeaders({
       'Content-Type': environment.CONTENT_TYPE,
-      // 'Access-Control-Allow-Origin': environment.ACCESS_CONTROL_ALLOW_ORIGIN,
+      'Access-Control-Allow-Origin': environment.ACCESS_CONTROL_ALLOW_ORIGIN,
       'Origin': environment.ORIGIN,
       'Access-Control-Allow-Methods': environment.ACCESS_CONTROL_ALLOW_METHODS,
       'Access-Control-Allow-Headers': environment.ACCESS_CONTROL_ALLOW_HEADERS,
@@ -45,7 +45,7 @@ export class CrudService {
       message: leads.message,
       phoneNumber: leads.phoneNumber,
       leadSource: leads.leadSource,
-      isClient: leads.isClient
+      client: leads.client
     }
     return this.http.post<Leads>(this.API_URL+"/add", this.lead);
   }
@@ -60,7 +60,7 @@ export class CrudService {
       message: leads.message,
       phoneNumber: leads.phoneNumber,
       leadSource: leads.leadSource,
-      isClient: leads.isClient
+      client: leads.client
     }
     return this.http.put<Leads>(this.API_URL+"/update", this.lead);
   }
