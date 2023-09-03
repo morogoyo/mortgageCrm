@@ -30,7 +30,7 @@ export class ViewClientComponent implements OnInit {
 
   ids: number[] = [0];
 
-  clientsTodDisplay: Set<Clients> = new Set();
+  clientsToDisplay: Set<Clients> = new Set();
 
   filteredLeadsToDisplay: any[] = [];
 
@@ -97,7 +97,7 @@ export class ViewClientComponent implements OnInit {
     // console.log("incoming id to leadsToBeDeleted(id))", id);
     this.ids[id] = id; // Id's to be deleted addition
     // console.log("Id # that will be deleted", this.ids[id]);
-    this.clientsTodDisplay.add(this.clients[i]);
+    this.clientsToDisplay.add(this.clients[i]);
     this.count++;
   }
 
@@ -138,7 +138,7 @@ export class ViewClientComponent implements OnInit {
   _deleteClientFromCount(id: any, i: any){
     delete this.ids[id];
     // delete this.leadsToDisplay[i];
-    this.clientsTodDisplay.delete(this.clients[i]);
+    this.clientsToDisplay.delete(this.clients[i]);
     this.count--;
 
   }
