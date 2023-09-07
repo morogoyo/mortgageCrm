@@ -20,7 +20,7 @@ RUN npm install --force
 # Generate the build of the application
 #RUN #npm run build --configuration=${CONFIGURATION}
 
-RUN npm run ng build -- --configuration=production
+RUN npm run ng build -- --configuration=$CONFIGURATION
 
 
 
