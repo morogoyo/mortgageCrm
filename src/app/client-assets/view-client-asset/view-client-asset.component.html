@@ -1,1 +1,40 @@
-<p>view-client-asset works!</p>
+<div class="card">
+
+  <div class="card-body col-lg-12 col-md-12 mb-4">
+    <h5 class="card-title">Client Assets </h5>
+    <div class="col-md-3">
+
+      <table  class="table table-striped table-bordered table-hover">
+        <!--        minus-square  user-minus-->
+        <tbody>
+
+
+
+        <tr>
+          <th ></th>
+          <th >ID</th>
+
+          <th>Email</th>
+          <th>Admin URL</th>
+          <th>Site URL</th>
+          <th>Services</th>
+          <th>Created Date</th>
+          <th>Last Updated</th>
+
+        <tr *ngFor="let asset of assetsToDisplay ;index as i">
+          <td><input type="checkbox" id="{{asset.id}}" name="{{asset.id}}"> </td>
+          <td>{{ asset?.id || "NA"  }}</td>
+          <td><a href="/client/{{asset.email}}">{{ asset?.email || "NA"  }}</a></td>
+          <td>{{ asset?.adminURL || "NA"  }}</td>
+          <td>{{ asset?.siteURL || "NA"  }}</td>
+          <td>{{ asset?.services || "NA"  }}</td>
+          <td>{{ asset?.createdDate || "NA"  }}</td>
+          <td>{{ asset?.updateDate || "NA"  }}</td>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

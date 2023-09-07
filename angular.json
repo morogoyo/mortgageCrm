@@ -102,14 +102,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "nobleui-angular:build:production"
+            "prod": {
+              "browserTarget": "nobleui-angular:build:prod"
             },
-            "development": {
-              "browserTarget": "nobleui-angular:build:development"
+            "dev": {
+              "browserTarget": "nobleui-angular:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

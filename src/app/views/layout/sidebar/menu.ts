@@ -34,7 +34,7 @@ export const MENU: MenuItem[] = [
   },
   {
 
-    label: 'Client View',
+    label: 'Clients',
 
     icon: 'users',
     link: '',
@@ -48,6 +48,31 @@ export const MENU: MenuItem[] = [
       //   label: 'add',
       //   link: '/client/add'
       // },{
+      //   label: 'update',
+      //   link: '/client/update'
+      // },{
+      //   label: 'delete',
+      //   link: '/client/delete'
+      // },
+    ]
+  },
+  {
+
+    label: 'Individual Client',
+
+    icon: 'users',
+    link: '',
+    subItems: [
+      {
+        label: 'view',
+        link: '/asset'
+      }
+      ,{
+
+        label: 'add',
+        link: '/asset/add'
+      }
+      // ,{
       //   label: 'update',
       //   link: '/client/update'
       // },{
@@ -79,7 +104,7 @@ export const MENU: MenuItem[] = [
   //   ],
   // },
 
-
+///////////////////////////////////////////////////////////
   // {
   //   label: 'Web Apps',
   //   isTitle: true
