@@ -8,7 +8,7 @@ import {Leads} from "../../_shared/interfaces/leads";
 
 export class LeadDataService {
   private leadtoView = new BehaviorSubject<string>('');
-  lead = this.leadtoView.asObservable()
+  lead = this.leadtoView.asObservable();
 
   constructor() {
   }
