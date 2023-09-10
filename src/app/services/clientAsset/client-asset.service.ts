@@ -37,6 +37,10 @@ export class ClientAssetService {
     return this.http.get(this.API_URL+"/all");
   }
 
+  viewAssetDetails(): Observable<any>  {
+    return this.http.get(this.API_URL+"/detail");
+  }
+
   addAsset(asset: any){
 
     this.asset = {

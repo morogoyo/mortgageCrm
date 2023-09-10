@@ -5,7 +5,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AddLeadsComponent} from "../add-leads/add-leads.component";
 import {FormBuilder} from "@angular/forms";
-import {LeadDataService} from "../../services/internal/lead-data.service";
+import {LeadDataService} from "../../services/internal/lead/lead-data.service";
 
 
 @Component({

@@ -2,7 +2,7 @@ import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {CrudService} from "../../services/leads/crud.service";
 import {Leads} from "../../_shared/interfaces/leads";
-import {LeadDataService} from "../../services/internal/lead-data.service";
+import {LeadDataService} from "../../services/internal/lead/lead-data.service";
 import {ClientService} from "../../services/client/client.service";
 import {Router} from "@angular/router";
 import {AddLeadsComponent} from "../add-leads/add-leads.component";

@@ -8,6 +8,7 @@ import {ViewClientComponent} from "../client/view-client/view-client.component";
 import {DeleteLeadsComponent} from "../leads/delete-leads/delete-leads.component";
 import {UpdateClientComponent} from "../client/update-client/update-client.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AssetComponent } from './asset/asset.component';
 
 const routes: Routes = [
   {
@@ -32,17 +33,17 @@ const routes: Routes = [
       }
     ]
   },
-  // {
-  //   path: 'delete',
-  //   component: DeleteLeadsComponent,
-  //   children: [
-  //     {
-  //       path: 'delete-client',
-  //       redirectTo: 'delete-client',
-  //       pathMatch: 'full',
-  //     }
-  //   ]
-  // },
+  {
+    path: 'asset',
+    component: AssetComponent,
+    children: [
+      {
+        path: 'asset',
+        redirectTo: 'asset',
+        pathMatch: 'full',
+      }
+    ]
+  },
   // {
   //   path: 'update',
   //   component: UpdateClientComponent,
@@ -60,7 +61,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AddClientAssetComponent,
-    ViewClientAssetComponent
+    ViewClientAssetComponent,
+    AssetComponent
   ],
   imports: [
     CommonModule,

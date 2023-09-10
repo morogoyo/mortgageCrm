@@ -25,4 +25,6 @@ export class ViewClientAssetComponent implements OnInit {
     });
   }
 
+
+
 }
