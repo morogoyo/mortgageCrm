@@ -24,7 +24,8 @@
         <tr *ngFor="let asset of assetsToDisplay ;index as i">
           <td><input type="checkbox" id="{{asset.id}}" name="{{asset.id}}"> </td>
           <td>{{ asset?.id || "NA"  }}</td>
-          <td><a href="/client/{{asset.email}}">{{ asset?.email || "NA"  }}</a></td>
+<!--          <td><a href="/client/{{asset.email}}">{{ asset?.email || "NA"  }}</a></td>-->
+          <td>{{ asset?.email || "NA"  }}</td>
           <td>{{ asset?.adminURL || "NA"  }}</td>
           <td>{{ asset?.siteURL || "NA"  }}</td>
           <td>{{ asset?.services || "NA"  }}</td>

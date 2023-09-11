@@ -58,20 +58,20 @@ export const MENU: MenuItem[] = [
   },
   {
 
-    label: 'Individual Client',
-
-    icon: 'users',
-    link: '',
+    // label: 'Individual Client',
+    //
+    // icon: 'users',
+    // link: '',
     subItems: [
-      {
-        label: 'view',
-        link: '/asset'
-      }
-      ,{
-
-        label: 'add',
-        link: '/asset/add'
-      }
+      // {
+      //   label: 'view',
+      //   link: '/asset'
+      // }
+      // ,{
+      //
+      //   label: 'add',
+      //   link: '/asset/add'
+      // }
       // ,{
       //   label: 'update',
       //   link: '/client/update'
