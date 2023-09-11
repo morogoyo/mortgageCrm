@@ -1,11 +1,11 @@
 {
-  "name": "nobleui-angular",
+  "name": "War Room CRM",
   "version": "2.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build --watch --configuration dev",
     "test": "ng test",
     "rtl": "webpack --config webpack-rtl.config.js"
   },

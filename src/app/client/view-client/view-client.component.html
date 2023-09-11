@@ -36,7 +36,7 @@
           <td><input type="checkbox" id="{{client.id}}" name="{{client.id}}" (click)="deleteClient($event , this.i);"></td>
 
           <td>{{ client?.fname || "NA" }} {{ client?.lname || "NA" }}</td>
-          <td><a href="/client/{{client.email}}">{{ client?.email|| "NA"  }}</a></td>
+          <td> <a routerLink="/asset/asset" (click)="clientDataTransfer(client)">{{ client?.email|| "NA"  }}</a></td>
           <td>{{ client?.address|| "NA"  }}</td>
           <td>{{ client?.city|| "NA"  }}</td>
           <td>{{ client?.state|| "NA"  }}</td>

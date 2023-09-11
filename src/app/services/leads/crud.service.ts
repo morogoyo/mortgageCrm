@@ -65,34 +65,11 @@ export class CrudService {
     return this.http.put<Leads>(this.API_URL+"/update", this.lead);
   }
 
-
-
-
-
  deleteLead(leads: any){
     return this.http.post(this.API_URL+"/multi_delete", leads);
   }
 
 
-
-
-  // makeLeadIntoClient(lead: Clients){
-  //
-  //   this.lead = {
-  //
-  //     fname: lead.fname,
-  //     lname: lead.lname,
-  //     email: lead.email,
-  //     message: lead.message,
-  //     phoneNumber: lead.phoneNumber,
-  //     leadSource: lead.leadSource
-  //
-  //
-  //   }
-  //
-  //
-  //   return this.http.post<Leads>(this.API_URL+"/add", this.lead);
-  // }
 
 
 

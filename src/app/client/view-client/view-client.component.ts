@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../../services/client/client.service";
 import {Clients} from "../../_shared/interfaces/clients";
+import {AssetDataService} from "../../services/internal/client/asset-data.service";
 
 @Component({
   selector: 'app-view-client',
@@ -19,7 +20,7 @@ export class ViewClientComponent implements OnInit {
   }
 
   constructor(private crudService: ClientService, private modalService: NgbModal, private route: ActivatedRoute,
-              private router: Router, private fb: FormBuilder) {
+              private router: Router, private fb: FormBuilder, private assetData: AssetDataService) {
   }
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -38,7 +39,7 @@ export class ViewClientComponent implements OnInit {
 
   basicModalCloseResult: string = '';
 
-
+  clientToPassIn: any;
 
 
   getAllClients() {
@@ -148,7 +149,13 @@ export class ViewClientComponent implements OnInit {
     this.router.navigate(['/clients']);
   }
 
+  clientDataTransfer(client: any) {
+    this.clientToPassIn = client;
+    console.log("view client component",this.clientToPassIn);
+    this.assetData.clientInfo(this.clientToPassIn);
 
+
+  }
 
 
 }

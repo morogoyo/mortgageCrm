@@ -17,7 +17,7 @@ export const environment = {
   API_URL_AUTH: "http://localhost:8080/api/authenticate",
   TODO_JPA_API_URL: "http://localhost:8080/api",
   REST_API_SERVER: "http://localhost:8080/api",
-  name: "development"
+  name: "dev"
 };
 
 /*
