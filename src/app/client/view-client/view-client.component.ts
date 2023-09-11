@@ -20,7 +20,7 @@ export class ViewClientComponent implements OnInit {
   }
 
   constructor(private crudService: ClientService, private modalService: NgbModal, private route: ActivatedRoute,
-              private router: Router, private fb: FormBuilder) {
+              private router: Router, private fb: FormBuilder, private assetData: AssetDataService) {
   }
 
   ///////////////////////////////////////////////////////////////////////////////
@@ -151,8 +151,9 @@ export class ViewClientComponent implements OnInit {
 
   clientDataTransfer(client: any) {
     this.clientToPassIn = client;
-    // this.assetsService.clientInfo(this.clientToPassIn);
-    console.log(this.clientToPassIn);
+    console.log("view client component",this.clientToPassIn);
+    this.assetData.clientInfo(this.clientToPassIn);
+
 
   }
 

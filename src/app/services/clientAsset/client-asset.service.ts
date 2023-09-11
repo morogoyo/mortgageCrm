@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {TokenInterceptorService} from "../authorization/token-interceptor.service";
 import {Observable} from "rxjs";
 import {Asset} from "../../_shared/interfaces/asset";
@@ -37,8 +37,13 @@ export class ClientAssetService {
     return this.http.get(this.API_URL+"/all");
   }
 
-  viewAssetDetails(): Observable<any>  {
-    return this.http.get(this.API_URL+"/detail");
+    viewAssetDetails(email: string): Observable<any>  {
+    console.log("email string passed into viewAssetDetails {}",email);
+        const url = this.API_URL+"/detail";
+        let queryParams = new HttpParams();
+        queryParams = queryParams.append("email",email);
+
+        return this.http.get(url,{params:queryParams});
   }
 
   addAsset(asset: any){
@@ -65,19 +70,8 @@ export class ClientAssetService {
     return this.http.put<Asset>(this.API_URL+"/update", this.asset);
   }
 
-
-
-
-
   deleteAsset(asset: any){
     return this.http.post(this.API_URL+"/multi_delete", this.asset);
   }
-
-
-
-
-
-
-
 
 }
