@@ -10,18 +10,22 @@ import {AssetDataService} from "../../services/internal/client/asset-data.servic
 })
 export class ViewClientAssetComponent implements OnInit {
   assetsToDisplay: any[] = [];
+  passedInClient: any;
 
   constructor(private clientAsset: ClientAssetService, private assetDataService: AssetDataService) {
   }
   ngOnInit(): void {
+    this.assetDataService.client.subscribe(data => {
+      this.passedInClient = data;
+    });
     this.viewAssets();
     // console.log(this.assetsToDisplay);
   }
 
-  this.assetDataService.client.
+
 
   viewAssets(){
-    this.clientAsset.viewAssetDetails().subscribe( data => {
+    this.clientAsset.viewAssetDetails(this.passedInClient.email).subscribe( data => {
       this.assetsToDisplay = data;
     });
   }
