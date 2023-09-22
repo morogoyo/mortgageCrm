@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {CrudService} from "../../services/leads/crud.service";
+import {LeadService} from "../../services/leads/lead.service";
 import {Leads} from "../../_shared/interfaces/leads";
 import {LeadDataService} from "../../services/internal/lead/lead-data.service";
 import {ClientService} from "../../services/client/client.service";
@@ -17,7 +17,7 @@ export class LeadComponent implements OnInit {
   passedInLead: any;
 
 
-  constructor(private LeadData: LeadDataService, private toClient: ClientService, private router: Router, private leadService: CrudService) { }
+  constructor(private LeadData: LeadDataService, private toClient: ClientService, private router: Router, private leadService: LeadService) { }
 
   ngOnInit(): void {
   this.LeadData.lead.subscribe(data => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CrudService} from "../../services/leads/crud.service";
+import {LeadService} from "../../services/leads/lead.service";
 import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../../services/client/client.service";
 import {Router} from "@angular/router";
