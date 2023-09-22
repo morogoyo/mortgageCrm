@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
 
     this.getLeadCount();
     this.getClientCount();
-    this.growthRatio();
+    // this.growthRatio();
 
     this.currentDate = this.calendar.getToday();
 
@@ -94,15 +94,15 @@ export class DashboardComponent implements OnInit {
           this.clientCount++;
         }
       }
-      this.growthRatio();
+      // this.growthRatio();
     })
   }
 
-  growthRatio() {
-    let percent;
-    percent = this.clientCount / this.leadCount
-    this.growthPercentage = percent * 100;
-  }
+  // growthRatio() {
+  //   let percent;
+  //   percent = this.leadCount / this.leadCount
+  //   this.growthPercentage = percent * 100;
+  // }
 
 
 

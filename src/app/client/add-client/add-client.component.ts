@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {LeadService} from "../../services/leads/lead.service";
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../../services/client/client.service";
 import {Router} from "@angular/router";
@@ -49,17 +48,18 @@ export class AddClientComponent implements OnInit {
 
   onSubmit() {
     // this.preview = JSON.stringify(this.contactForm.value);
-    this.clientService.addClient(this.contactForm.value).subscribe((clientToSave) => {
+    this.clientService.addClient(this.contactForm.value).subscribe(clientToSave => {
         console.log(clientToSave);
         this.addedClient = clientToSave;
-        this._redirectToClients();
+
       }
     );
 
-
+    this._redirectToClients();
   }
 
   _redirectToClients() {
+    console.log("redirecting to /client")
     this.router.navigate(['/client']);
       location.reload();
   }
