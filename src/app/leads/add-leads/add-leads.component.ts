@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CrudService} from "../../services/leads/crud.service";
+import {LeadService} from "../../services/leads/lead.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
@@ -10,7 +10,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class AddLeadsComponent implements OnInit {
 
 
-  constructor(private leadService: CrudService, private fb: FormBuilder) {
+  constructor(private leadService: LeadService, private fb: FormBuilder) {
 
   }
 

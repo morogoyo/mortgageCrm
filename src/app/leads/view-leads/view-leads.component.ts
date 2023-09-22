@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {CrudService} from "../../services/leads/crud.service";
+import {LeadService} from "../../services/leads/lead.service";
 import {Leads} from "../../_shared/interfaces/leads";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -14,7 +14,7 @@ import {LeadDataService} from "../../services/internal/lead/lead-data.service";
   styleUrls: ['./view-leads.component.scss']
 })
 export class ViewLeadsComponent implements OnInit {
-  constructor(private crudService: CrudService, private modalService: NgbModal, private route: ActivatedRoute,
+  constructor(private crudService: LeadService, private modalService: NgbModal, private route: ActivatedRoute,
               private router: Router, private fb: FormBuilder, private leadData: LeadDataService) {
   }
 

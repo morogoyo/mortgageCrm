@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
+import {LeadDataService} from "../../../services/internal/lead/lead-data.service";
+import {LeadService} from "../../../services/leads/lead.service";
+import {Leads} from "../../../_shared/interfaces/leads";
+import {ClientService} from "../../../services/client/client.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +24,7 @@ export class DashboardComponent implements OnInit {
   public monthlySalesChartOptions: any = {};
   public cloudStorageChartOptions: any = {};
 
-  // colors and font variables for apex chart 
+  // colors and font variables for apex chart
   obj = {
     primary        : "#6571ff",
     secondary      : "#7987a1",
@@ -42,9 +46,19 @@ export class DashboardComponent implements OnInit {
    */
   currentDate: NgbDateStruct;
 
-  constructor(private calendar: NgbCalendar) {}
+  leadCount: number = 0;
+  clientCount: number = 0;
+  growthPercentage: number = 0;
+
+
+  constructor(private calendar: NgbCalendar, private leadService: LeadService, private clientService: ClientService) {}
 
   ngOnInit(): void {
+
+    this.getLeadCount();
+    this.getClientCount();
+    this.growthRatio();
+
     this.currentDate = this.calendar.getToday();
 
     this.customersChartOptions = getCustomerseChartOptions(this.obj);
@@ -60,6 +74,49 @@ export class DashboardComponent implements OnInit {
     }
 
   }
+
+
+  getLeadCount() {
+    this.leadService.viewAllLeads().subscribe(data => {
+      for (const leadData of data) {
+        if (leadData.client != true) {
+
+          this.leadCount++;
+        }
+      }
+    })
+  }
+
+  getClientCount() {
+    this.clientService.viewAllClients().subscribe(data => {
+      for (const clientData of data) {
+        if (clientData.client != true) {
+          this.clientCount++;
+        }
+      }
+      this.growthRatio();
+    })
+  }
+
+  growthRatio() {
+    let percent;
+    percent = this.clientCount / this.leadCount
+    this.growthPercentage = percent * 100;
+  }
+
+
+
+
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
   /**
@@ -433,10 +490,10 @@ function getMonthlySalesChartOptions(obj: any) {
         show: false
       },
     },
-    colors: [obj.primary],  
+    colors: [obj.primary],
     fill: {
       opacity: .9
-    } , 
+    } ,
     grid: {
       padding: {
         bottom: -4
@@ -528,7 +585,7 @@ function getMonthlySalesChartOptions(obj: any) {
           background: obj.light,
           strokeWidth: '100%',
           opacity: 1,
-          margin: 5, 
+          margin: 5,
         },
         dataLabels: {
           showOn: "always",

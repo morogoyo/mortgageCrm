@@ -10,7 +10,7 @@ import {Clients} from "../../_shared/interfaces/clients";
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService {
+export class LeadService {
 
   API_URL = environment.REST_API_SERVER + '/lead';
 
