@@ -47,3 +47,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+## Rene config ##
+data/
+ubuntu@crud-demo.floridamortgagehunters.com
+
