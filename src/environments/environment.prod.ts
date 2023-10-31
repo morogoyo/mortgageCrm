@@ -11,9 +11,13 @@ export const environment = {
   ORIGIN: '*',
   ACCESS_CONTROL_ALLOW_METHODS: 'PUT, DELETE, POST, GET, OPTIONS',
   ACCESS_CONTROL_ALLOW_HEADERS: 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Accept',
-  API_URL_AUTH: "https://crm.nobledigitalservices.com:8080/api/authenticate",
-  TODO_JPA_API_URL: "https://crm.nobledigitalservices.com:8080/api",
-  REST_API_SERVER: "https://crm.nobledigitalservices.com:8080/api",
+  // API_URL_AUTH: "https://crm.nobledigitalservices.com:8080/api/authenticate",
+  // TODO_JPA_API_URL: "https://crm.nobledigitalservices.com:8080/api",
+  // REST_API_SERVER: "https://crm.nobledigitalservices.com:8080/api",
+
+  API_URL_AUTH: "https://crm.nobledigitalservices.com/api/authenticate",
+  TODO_JPA_API_URL: "https://crm.nobledigitalservices.com/api",
+  REST_API_SERVER: "https://crm.nobledigitalservices.com/api",
   name: "prod"
 
 
