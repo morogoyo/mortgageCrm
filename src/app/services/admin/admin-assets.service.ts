@@ -37,22 +37,26 @@ export class AdminAssetsService {
     return this.http.get(this.API_URL+"/get");
   }
 
-  addLead(leads: any){
-
+  addLinks(link: any)
+  {
     this.assetLink = {
-      fname: leads.fname,
-      lname: leads.lname,
-      email: leads.email,
-      message: leads.message,
-      phoneNumber: leads.phoneNumber,
-      leadSource: leads.leadSource,
-      client: leads.client
+      user: link.user,
+      name: link.name,
+      email: link.email,
+      link: link.link,
+      url: link.url,
+      notes: link.notes,
+      userName: link.userName,
+      passwordLocation: link.passwordLocation,
+
     }
+
+
     return this.http.post<Links>(this.API_URL+"/add", this.assetLink);
   }
 
 
-  updateLead(link: any){
+  updateLinks(link: any){
 
     this.assetLink = {
       fname: link.fname,
