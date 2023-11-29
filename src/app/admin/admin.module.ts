@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterLinkWithHref, Routes} from "@angular/router";
-import {AddLinkComponent} from "./asset-link/add-link/add-link.component";
-import {ViewLinkComponent} from "./asset-link/view-link/view-link.component";
-import {DeleteLinkComponent} from "./asset-link/delete-link/delete-link.component";
-import {UpdateLinkComponent} from "./asset-link/update-link/update-link.component";
 import {FormsModule} from "@angular/forms";
 
 
@@ -58,10 +54,7 @@ import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AddLinkComponent,
-    ViewLinkComponent,
-    DeleteLinkComponent,
-    UpdateLinkComponent
+
   ],
   imports: [
     CommonModule,
