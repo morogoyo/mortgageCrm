@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AdminAssetsService} from "../../../services/admin/admin-assets.service";
+import {FormBuilder} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-update-link',
@@ -7,9 +10,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateLinkComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private assetLinkService: AdminAssetsService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  linkData: any;
+  linkToPassIn: any;
+  addedLink: any;
+
+  contactForm = this.fb.group({
+
+    user: [''],
+    email: [''],
+    link: [''],
+    url: [''],
+    name: [''],
+    category: [''],
+    notes: [''],
+    userName: [''],
+    passwordLocation: [''],
+  });
+
+  preview: String
+
+  onSubmit() {
+    // this.preview = JSON.stringify(this.contactForm.value);
+    this.assetLinkService.updateLinks(this.contactForm.value).subscribe((linkToSave) => {
+        console.log(linkToSave);
+        this.addedLink = linkToSave;
+      }
+    );
+  }
+
+  _redirectToLinks() {
+    location.reload();
+    this.router.navigate(['/links']);
+  }
+
+
+  linksDataTransfer(link: any) {
+    this.linkToPassIn = link;
+    this.linkData.leadInfo(this.linkToPassIn);
+    console.log(this.linkToPassIn);
+
   }
 
 }

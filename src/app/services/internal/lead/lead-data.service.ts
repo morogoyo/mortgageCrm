@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {Leads} from "../../../_shared/interfaces/leads";
 
 @Injectable({
   providedIn: 'root'
