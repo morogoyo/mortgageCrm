@@ -59,18 +59,20 @@ export class AdminAssetsService {
   updateLinks(link: any){
 
     this.assetLink = {
-      fname: link.fname,
-      lname: link.lname,
+      id: link.id,
+      user: link.user,
+      name: link.name,
       email: link.email,
-      message: link.message,
-      phoneNumber: link.phoneNumber,
-      leadSource: link.leadSource,
-      client: link.client
+      link: link.link,
+      url: link.url,
+      notes: link.notes,
+      userName: link.userName,
+      passwordLocation: link.passwordLocation,
     }
     return this.http.put<Links>(this.API_URL+"/update", this.assetLink);
   }
 
-  deleteLead(linkId: any){
+  deleteLink(linkId: any){
     return this.http.delete(this.API_URL + "/" + linkId);
   }
 

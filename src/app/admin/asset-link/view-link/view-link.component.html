@@ -2,9 +2,10 @@
   <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Simple-datatables</h4>
-        <p class=“text-muted”>Read the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank"> Official Simple-datatables Documentation </a>for a full list of instructions and other options.</p>
-      </div>
+        <div class="col-md-2">
+          <div><input  class="btn btn-primary" type="submit" value="Add Lead" (click)="addLink()" >
+            <input  class="btn btn-danger" type="submit" value="Delete Selected" (click)="deleteLink()" > There are {{count}} to delete </div>
+        </div> </div>
     </div>
   </div>
 </div>
@@ -33,6 +34,7 @@
             </thead>
             <tbody>
             <tr *ngFor="let asset of assets ;index as i">
+              <td><input type="checkbox" id="{{asset.id}}" name="{{asset.id}}" (click)="selectLink($event , this.i);"></td>
               <td><a routerLink="/admin/update" (click)="linksDataTransfer(asset)">{{asset.id}}</a></td>
               <td>{{asset.user}}</td>
               <td>{{asset.email}}</td>

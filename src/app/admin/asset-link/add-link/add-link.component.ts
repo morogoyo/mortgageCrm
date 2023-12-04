@@ -19,6 +19,7 @@ export class AddLinkComponent implements OnInit {
   contactForm = this.fb.group({
 
     user: [''],
+    type: [''],
     email: [''],
     link: [''],
     url: [''],
