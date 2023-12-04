@@ -68,7 +68,11 @@ const routes: Routes = [
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
       {path: 'leads', redirectTo: 'ViewLeadsComponent', pathMatch: 'full'},
-      // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
+
+      {path: 'admin',
+        loadChildren: () => import('./admin/asset-link/asset-links.module').then(m => m.AssetLinksModule)},
+
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
   {
