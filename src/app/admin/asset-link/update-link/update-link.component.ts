@@ -42,19 +42,15 @@ export class UpdateLinkComponent implements OnInit {
         this.addedLink = linkToSave;
       }
     );
+    this._redirectToLinks()
   }
 
   _redirectToLinks() {
     location.reload();
-    this.router.navigate(['/links']);
+    this.router.navigate(['/admin']);
   }
 
 
-  linksDataTransfer(link: any) {
-    this.linkToPassIn = link;
-    this.linkData.leadInfo(this.linkToPassIn);
-    console.log(this.linkToPassIn);
 
-  }
 
 }

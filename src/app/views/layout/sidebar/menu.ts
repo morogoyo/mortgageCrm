@@ -33,7 +33,6 @@ export const MENU: MenuItem[] = [
     ]
   },
   {
-
     label: 'Clients',
 
     icon: 'users',
@@ -59,50 +58,51 @@ export const MENU: MenuItem[] = [
   {
 
     // label: 'Individual Client',
-    //
-    // icon: 'users',
-    // link: '',
+
+    icon: 'users',
+    link: 'admin',
+    label: 'Resources',
     subItems: [
-      // {
-      //   label: 'view',
-      //   link: '/asset'
-      // }
-      // ,{
-      //
-      //   label: 'add',
-      //   link: '/asset/add'
-      // }
-      // ,{
-      //   label: 'update',
-      //   link: '/client/update'
-      // },{
-      //   label: 'delete',
-      //   link: '/client/delete'
-      // },
+      {
+        label: 'view',
+        link: '/admin'
+      }
+      ,{
+
+        label: 'add',
+        link: '/admin/add'
+      }
+      ,{
+        label: 'update',
+        link: '/admin/update'
+      },{
+        label: 'delete',
+        link: '/admin/delete'
+      },
     ]
   },
-  // {
-  //   label: 'Roof Estimation',
-  //   icon: 'triangle',
-  //   link: '',
-  //   subItems: [
-  //     {
-  //       label: 'calculator',
-  //       link: '/roofing/calculator'
-  //     },
-  //     {
-  //       label: 'add Job',
-  //       link: '/roofing/calculator',
-  //     }
-  //     // ,{
-  //     //   label: 'update',
-  //     //   link: '/client/update',
-  //     // },{
-  //     //   label: 'delete',
-  //     //   link: '/client/delete',
-  //     // },
-  //   ],
-  // },
+  {
+    label: 'Roof Estimation',
+    icon: 'triangle',
+    link: '',
+    subItems: [
+      {
+        label: 'calculator',
+        link: '/roofing/calculator'
+      },
+      {
+        label: 'add Job',
+        link: '/roofing/calculator',
+      }
+      // ,{
+      //   label: 'update',
+      //   link: '/client/update',
+      // },{
+      //   label: 'delete',
+      //   link: '/client/delete',
+      // },
+    ],
+  },
 
 ///////////////////////////////////////////////////////////
   {

@@ -5,7 +5,7 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 
-export class LinkDataServices {
+export class LinkDataServices123123123 {
 
 
   private linkToView = new BehaviorSubject<string>('');
