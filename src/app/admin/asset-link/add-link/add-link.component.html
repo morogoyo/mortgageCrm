@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Form Grid</h6>
+        <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">Link Description</label>
+                <input type="text" class="form-control" formControlName="link" id="link" placeholder="Enter link">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">User</label>
+                <input type="text" class="form-control" formControlName="user" id="user" placeholder="user">
+              </div>
+            </div><!-- Col -->
+          </div><!-- Row -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label class="form-label">email</label>
+                <input type="email" class="form-control" formControlName="email" id="email"  placeholder="Enter city">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label class="form-label">url</label>
+                <input type="text" class="form-control" formControlName="url" id="url"  placeholder="Enter state">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label class="form-label">name</label>
+                <input type="text" class="form-control" formControlName="name" id="name"  placeholder="Enter zip code">
+              </div>
+            </div><!-- Col -->
+          </div><!-- Row -->
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">Category</label>
+                <input type="text" class="form-control" formControlName="category" id="category"  placeholder="Enter category">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">notes</label>
+                <input type="password" class="form-control" formControlName="notes" id="notes"  autocomplete="off" placeholder="Password">
+              </div>
+            </div><!-- Col -->
+          </div><!-- Row -->
+          <!--      </div>&lt;!&ndash; Row &ndash;&gt;-->
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">userName</label>
+                <input type="email" class="form-control" formControlName="userName" id="userName"  placeholder="Enter userName">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">Type</label>
+                <input type="password" class="form-control" formControlName="type" id="type"  autocomplete="off" placeholder="Password">
+              </div>
+            <div class="mb-3">
+                <label class="form-label">Password Location</label>
+                <input type="password" class="form-control" formControlName="passwordLocation" id="passwordLocation"  autocomplete="off" placeholder="Password">
+              </div>
+            </div><!-- Col -->
+          </div><!-- Row -->
+
+        <button type="submit" class="btn btn-primary submit">Submit form</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
