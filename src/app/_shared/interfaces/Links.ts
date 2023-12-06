@@ -1,5 +1,5 @@
 export interface Links {
-
+  id:string,
   user: string,
   email: string,
   link: string,
