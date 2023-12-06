@@ -6,6 +6,7 @@ import MetisMenu from 'metismenujs';
 import { MENU } from './menu';
 import { MenuItem } from './menu.model';
 import { Router, NavigationEnd } from '@angular/router';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-sidebar',
@@ -248,4 +249,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   };
 
 
+
+
+  env= environment.name;
 }

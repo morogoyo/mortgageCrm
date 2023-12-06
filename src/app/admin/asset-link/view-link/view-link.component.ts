@@ -56,6 +56,7 @@ export class ViewLinkComponent implements OnInit {
 
 
   addLink() {
-    this.router.navigate(['/admin/add'])
+    this.router.navigate(['/admin/add']);
+    location.reload();
   }
 }

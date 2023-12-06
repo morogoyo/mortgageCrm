@@ -4,6 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TokenInterceptorService} from "../authorization/token-interceptor.service";
 import {Observable} from "rxjs";
 import {Links} from "../../_shared/interfaces/Links";
+import {FormGroup} from "@angular/forms";
 
 
 
@@ -56,18 +57,18 @@ export class AdminAssetsService {
   }
 
 
-  updateLinks(link: any){
-
+  updateLinks(linkForm: any, passedInLink: Links){
+    // TODO this is stupid need to make this better, maybe generic object creation logic
     this.assetLink = {
-      id: link.id,
-      user: link.user,
-      name: link.name,
-      email: link.email,
-      link: link.link,
-      url: link.url,
-      notes: link.notes,
-      userName: link.userName,
-      passwordLocation: link.passwordLocation,
+      id: (linkForm.id != "")? linkForm.id : passedInLink.id,
+      user: (linkForm.user != "")? linkForm.user : passedInLink.user,
+      name: (linkForm.name != "")? linkForm.name : passedInLink.name,
+      email: (linkForm.email != "")? linkForm.email : passedInLink.email,
+      link: (linkForm.link != "")? linkForm.link : passedInLink.link,
+      url: (linkForm.url != "")? linkForm.url : passedInLink.url,
+      notes: (linkForm.notes != "")? linkForm.notes : passedInLink.notes,
+      userName: (linkForm.userName != "")? linkForm.userName : passedInLink.userName,
+      passwordLocation: (linkForm.passwordLocation != "")? linkForm.passwordLocation : passedInLink.passwordLocation,
     }
     return this.http.put<Links>(this.API_URL+"/update", this.assetLink);
   }
@@ -76,6 +77,10 @@ export class AdminAssetsService {
     return this.http.delete(this.API_URL + "/" + linkId);
   }
 
-
+_updateLinks(formGroup: FormGroup){
+  Object.keys(formGroup.controls).forEach((key) => {
+    formGroup.get(key);
+  });
+}
 
 }
