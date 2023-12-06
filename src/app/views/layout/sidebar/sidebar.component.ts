@@ -249,7 +249,5 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   };
 
 
-
-
-  env= environment.name;
+  protected readonly environment = environment;
 }

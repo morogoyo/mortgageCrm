@@ -4,7 +4,7 @@
 FROM node:16.20-alpine as build
 
 
-ENV ENVIRONMENT = ${ENVIRONMENT}
+ENV ENVIRONMENT = $ENVIRONMENT
 
 ARG CONFIGURATION=$ENVIRONMENT
 # Set the working directory
