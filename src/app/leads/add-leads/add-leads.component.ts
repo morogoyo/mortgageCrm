@@ -8,8 +8,6 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./add-leads.component.scss']
 })
 export class AddLeadsComponent implements OnInit {
-
-
   constructor(private leadService: LeadService, private fb: FormBuilder) {
 
   }

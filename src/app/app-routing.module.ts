@@ -30,6 +30,9 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./views/pages/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },{
+        path: 'billing',
+        loadChildren: () => import('./billing/billing.module').then(m => m.BillingModule)
       },
       {
         path: 'apps',

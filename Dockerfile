@@ -3,10 +3,7 @@
 # Use official node image as the base image
 FROM node:16.20-alpine as build
 
-
-ENV ENVIRONMENT = $ENVIRONMENT
-
-ARG CONFIGURATION=$ENVIRONMENT
+ARG CONFIGURATION
 # Set the working directory
 WORKDIR /usr/local/app
 

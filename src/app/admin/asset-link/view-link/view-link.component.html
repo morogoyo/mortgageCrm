@@ -36,7 +36,8 @@
             <tbody>
             <tr *ngFor="let asset of assets ;index as i">
               <td><input type="checkbox" id="{{asset.id}}" name="{{asset.id}}" (click)="selectLink($event , this.i);"></td>
-              <td><a routerLink="/admin/update" (click)="linksDataTransfer(asset)">{{asset.id}}</a></td>
+              <td><a routerLink="/admin/update" (click)="
+              linksDataTransfer(asset)">{{asset.id}}</a></td>
               <td>{{asset.user}}</td>
               <td>{{asset.email}}</td>
               <td>{{asset.link}}</td>
