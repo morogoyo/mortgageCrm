@@ -1,61 +1,243 @@
-<div class="container">
-  <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col-md-6 grid-margin stretch-card col-xl-12">
+    <div class="card">
+      <div class="card-body">
 
-    <div class="mb-3">
-      <label for="fname" class="form-label">First Name</label>
-      <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">
-    </div>
-    <div class="mb-3">
-      <label for="lname" class="form-label">Last Name</label>
-      <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
-    </div>
-    <div class="mb-3">
-      <label for="description" class="form-label">description</label>
-      <input type="text" class="form-control" formControlName="description" id="description" autocomplete="off" placeholder="Phone Number">
-    </div>
-    <div class="mb-3">
-      <label for="billingAddress" class="form-label">Billing Address</label>
-      <input type="text" class="form-control" formControlName="billingAddress" id="billingAddress" autocomplete="off" placeholder="billingAddress">
-    </div>
-   <div class="mb-3">
-      <label for="projectAddress" class="form-label">Project Address</label>
-      <input type="text" class="form-control" formControlName="projectAddress" id="projectAddress" autocomplete="off" placeholder="projectAddress">
-    </div>
-   <div class="mb-3">
-      <label for="clientName" class="form-label">clientName</label>
-      <input type="text" class="form-control" formControlName="clientName" id="clientName" autocomplete="off" placeholder="clientName">
-   </div>
-   <div class="mb-3">
-      <label for="date" class="form-label">date</label>
-      <input type="text" class="form-control" formControlName="date" id="date" autocomplete="off" placeholder=" date">
-    </div>
-   <div class="mb-3">
-      <label for="date" class="form-label">date</label>
-      <input type="text" class="form-control" formControlName="date" id="date" autocomplete="off" placeholder="date">
-    </div>
-   <div class="mb-3">
+        <h6 class="card-title">Estimate Form</h6>
+        <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="row">
 
-      <label for="category" class="form-label">category</label>
-      <input type="text" class="form-control" formControlName="category" id="category" autocomplete="off" placeholder=" category">
-    </div>
-   <div class="mb-3">
-      <label for="estimateNumber" class="form-label"> estimateNumber</label>
-      <input type="text" class="form-control" formControlName="estimateNumber" id="estimateNumber" autocomplete="off" placeholder="estimateNumber ">
-    </div>
-   <div class="mb-3">
-      <label for="termsAndConditions" class="form-label"> termsAndConditions</label>
-      <input type="text" class="form-control" formControlName="termsAndConditions" id="termsAndConditions" autocomplete="off" placeholder="termsAndConditions">
+            <div class="col-lg-2 col-xl-4"><label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email"></div>
+            <div class="col-lg-2 col-xl-4 offset-xl-0"><label for="description" class="form-label">description</label>
+              <input type="text" class="form-control" formControlName="description" id="description" autocomplete="off"
+                     placeholder="Phone Number">
+            </div>
+            <div class="col-lg-2 col-xl-4"><label for="billingAddress" class="form-label">Billing Address</label>
+              <input type="text" class="form-control" formControlName="billingAddress" id="billingAddress"
+                     autocomplete="off" placeholder="billingAddress">
+            </div>
+            <div class="col-lg-2 col-xl-4"><label for="projectAddress" class="form-label">Project Address</label>
+              <input type="text" class="form-control" formControlName="projectAddress" id="projectAddress"
+                     autocomplete="off" value="projectAddress" placeholder="1000"></div>
+            <div class="col-lg-2 offset-xl-0 col-xl-4"><label for="clientName" class="form-label">clientName</label>
+              <input type="text" class="form-control" formControlName="clientName" id="clientName" autocomplete="off"
+                     placeholder="clientName">
+            </div>
+            <div class="col-lg-2 col-xl-4"><label for="category" class="form-label">category</label>
+              <input type="text" class="form-control" formControlName="category" id="category" autocomplete="off"
+                     placeholder=" category">
+            </div>
+            <div class="col-lg-2 col-xl-4"><label for="estimateNumber" class="form-label"> estimateNumber</label>
+              <input type="text" class="form-control" formControlName="estimateNumber" id="estimateNumber"
+                     autocomplete="off" placeholder="estimateNumber ">
+            </div>
+            <div class="col-lg-2 col-xl-4 offset-xl-1">
+              <label for="termsAndConditions" class="form-label"> termsAndConditions</label>
+              <input type="text" class="form-control" formControlName="termsAndConditions" id="termsAndConditions"
+                     autocomplete="off" placeholder="termsAndConditions">
+            </div>
+            <!--
+                <div class="col-lg-2">.col-lg-1</div>
+                <div class="col-lg-2">.col-lg-1</div>
+                <div class="col-lg-2">.col-lg-1</div>
+                <div class="col-lg-2">.col-lg-1</div>
+            -->
+
+
+            <div class="form-check mb-3 col-lg-3 row">
+              <button type="submit" class="btn btn-primary me-2">Submit</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div>
+
+          </div>
+        </form>
+
+
+      </div>
     </div>
 
-    <div class="form-check mb-3">
+  </div>
 
-    </div>
-    <button type="submit" class="btn btn-primary me-2">Submit</button>
 
-  </form>
+  <!--<div class="container">-->
+  <!--  <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">-->
 
-</div>
+  <!--    <div class="mb-3">-->
+  <!--      <label for="email" class="form-label">Email address</label>-->
+  <!--      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label for="description" class="form-label">description</label>-->
+  <!--      <input type="text" class="form-control" formControlName="description" id="description" autocomplete="off" placeholder="Phone Number">-->
+  <!--    </div>-->
+  <!--    <div class="mb-3">-->
+  <!--      <label for="billingAddress" class="form-label">Billing Address</label>-->
+  <!--      <input type="text" class="form-control" formControlName="billingAddress" id="billingAddress" autocomplete="off" placeholder="billingAddress">-->
+  <!--    </div>-->
+  <!--   <div class="mb-3">-->
+  <!--      <label for="projectAddress" class="form-label">Project Address</label>-->
+  <!--      <input type="text" class="form-control" formControlName="projectAddress" id="projectAddress" autocomplete="off" value="projectAddress" placeholder="1000">-->
+  <!--    </div>-->
+  <!--   <div class="mb-3">-->
+  <!--      <label for="clientName" class="form-label">clientName</label>-->
+  <!--      <input type="text" class="form-control" formControlName="clientName" id="clientName" autocomplete="off" placeholder="clientName">-->
+  <!--   </div>-->
+
+  <!--   <div class="mb-3">-->
+  <!--      <label for="date" class="form-label">Date</label>-->
+  <!--      <input type="text" class="form-control" formControlName="date" id="date" autocomplete="off" placeholder="date">-->
+  <!--    </div>-->
+  <!--   <div class="mb-3">-->
+
+  <!--      <label for="category" class="form-label">category</label>-->
+  <!--      <input type="text" class="form-control" formControlName="category" id="category" autocomplete="off" placeholder=" category">-->
+  <!--    </div>-->
+  <!--   <div class="mb-3">-->
+  <!--      <label for="estimateNumber" class="form-label"> estimateNumber</label>-->
+  <!--      <input type="text" class="form-control" formControlName="estimateNumber" id="estimateNumber" autocomplete="off" placeholder="estimateNumber ">-->
+  <!--    </div>-->
+  <!--   <div class="mb-3">-->
+  <!--      <label for="termsAndConditions" class="form-label"> termsAndConditions</label>-->
+  <!--      <input type="text" class="form-control" formControlName="termsAndConditions" id="termsAndConditions" autocomplete="off" placeholder="termsAndConditions">-->
+  <!--    </div>-->
+
+  <!--    <div class="form-check mb-3">-->
+
+  <!--    </div>-->
+  <!--    <button type="submit" class="btn btn-primary me-2">Submit</button>-->
+
+  <!--  </form>-->
+
+  <!--</div>-->
+
+
+  <!--	  -->
+
+
+  <!--<div class="row">-->
+  <!--  <div class="col-md-6 grid-margin stretch-card">-->
+  <!--    <div class="card">-->
+  <!--      <div class="card-body">-->
+
+  <!--        <h6 class="card-title">Estimate Form</h6>-->
+
+  <!--        <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">-->
+  <!--&lt;!&ndash;          &ndash;&gt;-->
+  <!--          <div class="row">-->
+  <!--          <div class="mb-3">-->
+  <!--            <label for="email" class="form-label">Email address</label>-->
+  <!--            <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">-->
+  <!--&lt;!&ndash;          </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;          <div class="mb-2">&ndash;&gt;-->
+  <!--            <label for="description" class="form-label">description</label>-->
+  <!--            <input type="text" class="form-control" formControlName="description" id="description" autocomplete="off" placeholder="Phone Number">-->
+  <!--&lt;!&ndash;          </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;          <div class="mb-2">&ndash;&gt;-->
+  <!--            <label for="billingAddress" class="form-label">Billing Address</label>-->
+  <!--            <input type="text" class="form-control" formControlName="billingAddress" id="billingAddress" autocomplete="off" placeholder="billingAddress">-->
+  <!--          </div>-->
+  <!--       </div>-->
+  <!--          <div class="mb-3">-->
+  <!--            <label for="projectAddress" class="form-label">Project Address</label>-->
+  <!--            <input type="text" class="form-control" formControlName="projectAddress" id="projectAddress" autocomplete="off" value="projectAddress" placeholder="1000">-->
+  <!--          </div>-->
+  <!--          <div class="mb-3">-->
+  <!--            <label for="clientName" class="form-label">clientName</label>-->
+  <!--            <input type="text" class="form-control" formControlName="clientName" id="clientName" autocomplete="off" placeholder="clientName">-->
+  <!--          </div>-->
+  <!--&lt;!&ndash;          &ndash;&gt;-->
+  <!--          <div class="form-check mb-3">-->
+  <!--            <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+  <!--            <label class="form-check-label" for="exampleCheck1">-->
+  <!--              Remember me-->
+  <!--            </label>-->
+  <!--          </div>-->
+  <!--&lt;!&ndash;          <button type="submit" class="btn btn-primary me-2">Submit</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;          <button class="btn btn-secondary">Cancel</button>&ndash;&gt;-->
+
+
+  <!--&lt;!&ndash;        <h6 class="card-title">Horizontal Form</h6>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;        <form class="forms-sample">&ndash;&gt;-->
+  <!--          <div class="mb-3">-->
+
+  <!--            <label for="category" class="form-label">category</label>-->
+  <!--            <input type="text" class="form-control" formControlName="category" id="category" autocomplete="off" placeholder=" category">-->
+  <!--          </div>-->
+  <!--          <div class="mb-3">-->
+  <!--            <label for="estimateNumber" class="form-label"> estimateNumber</label>-->
+  <!--            <input type="text" class="form-control" formControlName="estimateNumber" id="estimateNumber" autocomplete="off" placeholder="estimateNumber ">-->
+  <!--          </div>-->
+  <!--          <div class="mb-3">-->
+  <!--            <label for="termsAndConditions" class="form-label"> termsAndConditions</label>-->
+  <!--            <input type="text" class="form-control" formControlName="termsAndConditions" id="termsAndConditions" autocomplete="off" placeholder="termsAndConditions">-->
+  <!--          </div>-->
+  <!--          <div class="form-check mb-3">-->
+  <!--            <input type="checkbox" class="form-check-input" id="exampleCheck2">-->
+  <!--            <label class="form-check-label" for="exampleCheck2">-->
+  <!--              Remember me-->
+  <!--            </label>-->
+  <!--          </div>-->
+  <!--          <button type="submit" class="btn btn-primary me-2">Submit</button>-->
+  <!--          <button class="btn btn-secondary">Cancel</button>-->
+  <!--        </form>-->
+
+
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <!--      </div>-->
+
+
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  <!--&lt;!&ndash;  <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">&ndash;&gt;-->
+
+  <!--&lt;!&ndash;    <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="email" class="form-label">Email address</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;    <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="description" class="form-label">description</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="description" id="description" autocomplete="off" placeholder="Phone Number">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;    <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="billingAddress" class="form-label">Billing Address</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="billingAddress" id="billingAddress" autocomplete="off" placeholder="billingAddress">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="projectAddress" class="form-label">Project Address</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="projectAddress" id="projectAddress" autocomplete="off" value="projectAddress" placeholder="1000">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="clientName" class="form-label">clientName</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="clientName" id="clientName" autocomplete="off" placeholder="clientName">&ndash;&gt;-->
+  <!--&lt;!&ndash;   </div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="date" class="form-label">Date</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="date" id="date" autocomplete="off" placeholder="date">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+
+  <!--&lt;!&ndash;      <label for="category" class="form-label">category</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="category" id="category" autocomplete="off" placeholder=" category">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="estimateNumber" class="form-label"> estimateNumber</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="estimateNumber" id="estimateNumber" autocomplete="off" placeholder="estimateNumber ">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;   <div class="mb-3">&ndash;&gt;-->
+  <!--&lt;!&ndash;      <label for="termsAndConditions" class="form-label"> termsAndConditions</label>&ndash;&gt;-->
+  <!--&lt;!&ndash;      <input type="text" class="form-control" formControlName="termsAndConditions" id="termsAndConditions" autocomplete="off" placeholder="termsAndConditions">&ndash;&gt;-->
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;    <div class="form-check mb-3">&ndash;&gt;-->
+
+  <!--&lt;!&ndash;    </div>&ndash;&gt;-->
+  <!--&lt;!&ndash;    <button type="submit" class="btn btn-primary me-2">Submit</button>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;  </form>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->

@@ -17,7 +17,7 @@ const routes: Routes = [
         path: 'estimate',
         loadChildren: () => import('./estimate/estimate.module').then(m => m.EstimateModule)
       },{
-        path: 'lineItem',
+        path: 'line-item',
         loadChildren: () => import('./line-item/line-item.module').then(m => m.LineItemModule)
       },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }

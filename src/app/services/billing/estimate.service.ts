@@ -45,12 +45,20 @@ export class EstimateService {
 
     this.estimate = {
       email: data.email,
-      adminURL: data.adminurl,
-      siteURL: data.siteurl,
-      services: data.services
-
+      services: data.services,
+      description: data.description ,
+      billingAddress: data.billingAddress,
+      projectAddress: data.projectAddress,
+      clientName: data.clientName,
+      date: data.date,
+      category: data.category,
+      estimateNumber: data.estimateNumber,
+      termsAndConditions:data.termsAndConditions,
+      lineItems: data.lineItems
     }
+
     return this.http.post<Estimate>(this.API_URL+"/add", this.estimate);
+
   }
 
 

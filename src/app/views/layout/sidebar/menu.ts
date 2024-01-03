@@ -34,7 +34,6 @@ export const MENU: MenuItem[] = [
   },
   {
     label: 'Clients',
-
     icon: 'users',
     link: '',
     subItems: [
@@ -79,6 +78,52 @@ export const MENU: MenuItem[] = [
       //   label: 'delete',
       //   link: '/admin/delete'
       // },
+    ]
+  },
+  {
+    icon: 'file-text',
+    link: '',
+    label: 'Estimate',
+    subItems: [
+      {
+        label: 'view',
+        link: 'billing/estimate'
+      }
+      ,{
+
+        label: 'add',
+        link: 'billing/estimate/add'
+      }
+      ,{
+        label: 'update',
+        link: '/billing/estimate/update'
+      },{
+        label: 'delete',
+        link: '/billing/estimate/delete'
+      },
+    ]
+  },
+   {
+    icon: 'file-text',
+    link: '',
+    label: 'Line Items',
+    subItems: [
+      {
+        label: 'view',
+        link: 'billing/line-item'
+      }
+      ,{
+
+        label: 'add',
+        link: 'billing/line-item/add'
+      }
+      ,{
+        label: 'update',
+        link: '/billing/line-item/update'
+      },{
+        label: 'delete',
+        link: '/billing/line-item/delete'
+      },
     ]
   },
   {

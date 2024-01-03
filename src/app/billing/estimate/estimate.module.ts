@@ -4,7 +4,7 @@ import { ViewEstimateComponent } from './view-estimate/view-estimate.component';
 import { AddEstimateComponent } from './add-estimate/add-estimate.component';
 import { UpdateEstimateComponent } from './update-estimate/update-estimate.component';
 import {RouterModule, Routes} from "@angular/router";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -60,10 +60,11 @@ const routes: Routes = [
     AddEstimateComponent,
     UpdateEstimateComponent
   ],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        ReactiveFormsModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    FormsModule,
+  ]
 })
 export class EstimateModule { }
