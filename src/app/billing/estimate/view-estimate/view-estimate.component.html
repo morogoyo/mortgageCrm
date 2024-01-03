@@ -1,0 +1,193 @@
+<div class="col-lg-12 col-md-12 mb-4">
+  <div class="card">
+
+    <div class="card-body">
+      <h5 class="card-title">Estimate for  {{test}} </h5>
+      <div class="col-md-2">
+<!--        <div><input  class="btn btn-primary" type="submit" value="Add Lead"  (click)="openBasicModal(addLeadModal)">-->
+        <div><input  class="btn btn-primary" type="submit" value="Add Lead"  >
+          <input  class="btn btn-danger" type="submit" value="Delete Selected"  >
+        </div>
+<!--          <input  class="btn btn-danger" type="submit" value="Delete Selected"  (click)="openBasicModal(basicModal)"> There are {{count}} to delete </div>-->
+      </div>
+
+
+
+      <table  class="table table-striped table-bordered table-hover">
+
+        <thead>
+        <!--        <tr>-->
+        <!--          <th><button class="button warning">Add Lead</button></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--          <th></th>-->
+        <!--        </tr>-->
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">ID#</th>
+          <th scope="col">Billing Address</th>
+          <th scope="col">Project Address</th>
+          <th scope="col">Client Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Category</th>
+          <th scope="col">Estimate Number</th>
+          <th scope="col">Terms and Conditions</th>
+          <th scope="col">Created date</th>
+          <th scope="col">Updated Date</th>
+
+
+        </tr>
+        </thead>
+        <!--        minus-square  user-minus-->
+        <tbody>
+        <ng-container  *ngFor="let estimate of estimateToDisplay ;index as i">
+          <tr *ngIf="estimate.isClient != true" >
+
+            <td ><input type="checkbox" id="{{estimate.id}}" name="{{estimate.id}}" >          </td>
+<!--            <td ><input type="checkbox" id="{{estimate.id}}" name="{{estimate.id}}" (click)="leadsToBeDeleted($event , this.i);">          </td>-->
+
+            <td>{{estimate.id }}</td>
+<!--            <td>-->
+<!--             {{estimate.description || "NA"}}-->
+<!--             </td>-->
+            <td>
+              {{estimate.billingAddress || "NA"}}
+              </td>
+            <td >
+              {{estimate.projectAddress || "NA"}}
+              </td>
+            <td>
+              {{estimate.clientName || "NA" }}
+            </td>
+
+            <td>
+              {{estimate.date || "NA"}}
+            </td>
+            <td>
+              {{estimate.category || "NA"}}
+            </td>
+            <td>
+              {{estimate.estimateNumber || "NA"}}
+            </td>
+            <td>
+              {{estimate.termsAndConditions || "NA"}}
+            </td>
+            <td>
+              {{estimate.createdDate || "NA"}}
+            </td>
+            <td>
+              {{estimate.updatedDate || "NA"}}
+            </td>
+
+          </tr>
+        </ng-container>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--<ng-template #basicModal let-modal>-->
+<!--  <div class="modal-header">-->
+<!--    <h5 class="modal-title" id="DeleteLeadModalLabel">Deleting The following Leads</h5>-->
+<!--    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>-->
+<!--  </div>-->
+<!--  <div class="modal-body">-->
+<!--    <p>Leads</p>-->
+<!--    <table  class="table table-striped table-bordered table-hover">-->
+<!--      <tbody>-->
+<!--      <th>Id</th>-->
+<!--      <th>Name</th>-->
+<!--      <th>Email</th>-->
+<!--      <tr  *ngFor="let display of leadsToDisplay " >-->
+<!--        <td >{{ display?.id || "NA" }}</td>-->
+
+<!--        <td>{{ display?.fname || "NA" }} {{ display?.lname || "NA" }}</td>-->
+
+<!--        <td>{{ display?.email|| "NA"  }}</td>-->
+
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+
+<!--  </div>-->
+<!--  <div class="modal-footer">-->
+<!--    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button') ;displayLeadToBeDeletedInModal() ">Reset Selected Leads</button>-->
+<!--    <button type="button" class="btn btn-danger" (click)="modal.close('by: save button'); displayLeadToBeDeletedInModal(); removeLeads()">Confirm Lead Deletion</button>-->
+<!--  </div>-->
+<!--</ng-template>-->
+
+<!--<ng-template #addLeadModal let-modal>-->
+<!--  <div class="modal-header">-->
+<!--    <h5 class="modal-title" id="AddLeadModalLabel">Deleting The following Leads</h5>-->
+<!--    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>-->
+<!--  </div>-->
+<!--  <div class="modal-body">-->
+<!--    <p>Leads</p>-->
+<!--    <div class="container">-->
+<!--      <form class="forms-sample" [formGroup]="contactForm" (ngSubmit)="onSubmit()">-->
+<!--        <div class="mb-3">-->
+<!--          <label for="fname" class="form-label">First Name</label>-->
+<!--          <input type="text" class="form-control" formControlName="fname" id="fname" autocomplete="off" placeholder="First Name">-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--          <label for="lname" class="form-label">Last Name</label>-->
+<!--          <input type="text" class="form-control" formControlName="lname" id="lname" autocomplete="off" placeholder="Last Name">-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--          <label for="email" class="form-label">Email address</label>-->
+<!--          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--          <label for="phoneNumber" class="form-label">Phone Number</label>-->
+<!--          <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" autocomplete="off" placeholder="Phone Number">-->
+<!--        </div>-->
+<!--        <div class="mb-3">-->
+<!--          <label for="leadSource" class="form-label">Lead Source</label>-->
+<!--          <input type="text" class="form-control" formControlName="leadSource" id="leadSource" autocomplete="off" placeholder="Lead Source">-->
+<!--        </div>-->
+<!--        <div class="form-check mb-3">-->
+
+<!--        </div>-->
+<!--        <button type="submit" class="btn btn-primary me-2" (click)="modal.close('by: close icon'); ">Submit</button>-->
+
+<!--      </form>-->
+
+<!--    </div>-->
+
+
+<!--  </div>-->
+<!--  <div class="modal-footer">-->
+<!--  </div>-->
+<!--</ng-template>-->
+
+
+<!--<ng-template #makeClient let-modal>-->
+<!--  <div class="modal-header">-->
+<!--    <h5 class="modal-title" id="makeClient">Deleting The following Leads</h5>-->
+<!--    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>-->
+<!--  </div>-->
+<!--  <div class="modal-body">-->
+<!--    <app-lead ></app-lead>-->
+<!--  </div>-->
+
+
+
+<!--  <div class="modal-footer">-->
+<!--  </div>-->
+<!--</ng-template>-->
+
+
+
+
+
+
+
+
+
+
+
+
