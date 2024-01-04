@@ -1,0 +1,42 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+
+      <th>estimateNumber</th>
+      <th>description</th>
+      <th>createdDate</th>
+      <th>updateDate</th>
+      <th>user</th>
+      <th>email</th>
+      <th>unitPrice</th>
+      <th>amount</th>
+      <th>quantity</th>
+      <th>salesTax</th>
+      <th>subTotal</th>
+      <th>total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let lineItem of lineItemToDisplay ; index as i">
+    <tr>
+      <td>{{lineItem.id || "NA"}}</td>
+      <td>{{ lineItem.estimateNumber || "NA"}}</td>
+      <td>{{ lineItem.description || "NA"}}n</td>
+      <td>{{ lineItem.createdDate || "NA"}}</td>
+      <td>{{ lineItem.updateDate || "NA"}}</td>
+      <td>{{ lineItem.user|| "NA"}}</td>
+      <td>{{ lineItem.email || "NA"}}</td>
+      <td>{{ lineItem.unitPrice || "NA"}}</td>
+      <td>{{ lineItem.amount || "NA"}}</td>
+      <td>{{ lineItem.quantity || "NA"}}</td>
+      <td>{{ lineItem.salesTax || "NA"}}</td>
+
+      <td>{{ lineItem.subTotal || "NA"}}</td>
+      <td>{{ lineItem.total || "NA"}}</td>
+    </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

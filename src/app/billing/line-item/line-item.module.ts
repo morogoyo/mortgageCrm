@@ -6,26 +6,28 @@ import {ViewEstimateComponent} from "../estimate/view-estimate/view-estimate.com
 import {AddEstimateComponent} from "../estimate/add-estimate/add-estimate.component";
 import {UpdateEstimateComponent} from "../estimate/update-estimate/update-estimate.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import { UpdateLineItemComponent } from './update-line-item/update-line-item.component';
+import { ViewLineItemComponent } from './view-line-item/view-line-item.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewEstimateComponent,
+    component: ViewLineItemComponent,
     children: [
       {
-        path: 'app-view-estimate',
-        redirectTo: 'app-view-estimate',
+        path: 'app-view-line-item',
+        redirectTo: 'app-view-line-item',
         pathMatch: 'full',
       }
     ]
   },
   {
     path: 'add',
-    component: AddEstimateComponent,
+    component: AddLineItemComponent,
     children: [
       {
-        path: 'app-add-estimate',
-        redirectTo: 'app-add-estimate',
+        path: 'app-add-line-item',
+        redirectTo: 'app-add-line-item',
         pathMatch: 'full',
       }
     ]
@@ -57,7 +59,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AddLineItemComponent
+    AddLineItemComponent,
+    UpdateLineItemComponent,
+    ViewLineItemComponent
   ],
   imports: [
     CommonModule,

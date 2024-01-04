@@ -9,9 +9,10 @@ import {LineItem} from "../../_shared/interfaces/line-item";
   providedIn: 'root'
 })
 export class LineItemService {
+  private estimate: string = "EST-2023-09-01-PX";
   constructor( private http: HttpClient, private httpIntercept: TokenInterceptorService) { }
 
-  API_URL = environment.REST_API_SERVER + '/estimate';
+  API_URL = environment.REST_API_SERVER + '/lineItem';
 
   lineItem: any;
 
@@ -28,8 +29,8 @@ export class LineItemService {
 
 
 
-  viewAllLineItem(): Observable<any>  {
-    return this.http.get(this.API_URL+"/all");
+  viewAllLineItemForEstimate(): Observable<any>  {
+    return this.http.get(this.API_URL + "/get/EST-2023-09-01-PX" );//+ this.estimate);
   }
 
   viewLineItemDetails(email: string): Observable<any>  {

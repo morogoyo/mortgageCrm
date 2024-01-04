@@ -31,24 +31,7 @@ export class AddEstimateComponent implements OnInit {
   });
 
 
- // contactForm = this.fb.group({
- //   "id": "fe415f4f-36d6-40b7-9ac1-39f196d0afaf",
- //   "createdDate": "2023-08-31",
- //   "updateDate": "2023-11-16",
- //   "user": "morogoyo",
- //   "email": "email20@example.com",
- //   "description": "Project X",
- //   "billingAddress": "123 Main St",
- //   "projectAddress": "456 Oak Ave",
- //   "clientName": "ABC Corp",
- //   "date": "2023-09-19",
- //   "category": "Consulting",
- //   "estimateNumber": "EST-2023-11-16-JD",
- //   "termsAndConditions": "Terms 1",
- //   "lineItems": [ ]
- //  });
-
-  preview: String
+ preview: String
 
   onSubmit() {
     this.preview = JSON.stringify(this.contactForm.value);
