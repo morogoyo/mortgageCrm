@@ -18,7 +18,7 @@ export class AssetDataService {
 
 
   clientInfo(client: any) {
-    console.log("client from asset data ", client)
+    console.log("Client data from asset data", client)
     this.clientToView.next(client);
   }
 

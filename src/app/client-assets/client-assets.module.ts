@@ -65,6 +65,10 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    ViewClientAssetComponent,
+    AssetComponent
   ]
 })
 export class ClientAssetsModule { }

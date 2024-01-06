@@ -7,11 +7,11 @@ import {Clients} from "../../_shared/interfaces/clients";
 import {AssetDataService} from "../../services/internal/client/asset-data.service";
 
 @Component({
-  selector: 'app-view-client',
-  templateUrl: './view-client.component.html',
-  styleUrls: ['./view-client.component.scss']
+  selector: 'app-view-client-list',
+  templateUrl: './view-client-list.component.html',
+  styleUrls: ['./view-client-list.component.scss']
 })
-export class ViewClientComponent implements OnInit {
+export class ViewClientComponentList implements OnInit {
 
   ngOnInit(): void {
     // const dataTable = new DataTable("#leadsTable");
@@ -132,8 +132,6 @@ export class ViewClientComponent implements OnInit {
     this.crudService.deleteClient(filtered).subscribe((data) => {
       console.log(data)
     })
-
-
     // this._redirectToClients()
   }
   _deleteClientFromCount(id: any, i: any){
@@ -141,7 +139,6 @@ export class ViewClientComponent implements OnInit {
     // delete this.leadsToDisplay[i];
     this.clientsToDisplay.delete(this.clients[i]);
     this.count--;
-
   }
 
   _redirectToClients() {
@@ -149,13 +146,11 @@ export class ViewClientComponent implements OnInit {
     this.router.navigate(['/clients']);
   }
 
+  //Asset Data Service
   clientDataTransfer(client: any) {
     this.clientToPassIn = client;
     console.log("view client component",this.clientToPassIn);
     this.assetData.clientInfo(this.clientToPassIn);
-
-
   }
-
 
 }

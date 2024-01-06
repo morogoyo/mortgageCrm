@@ -12,25 +12,25 @@
 
         <tr>
           <th ></th>
-          <th >ID</th>
+<!--          <th >ID</th>-->
 
-          <th>Email</th>
+<!--          <th>Email</th>-->
+          <th>Services</th>
           <th>Admin URL</th>
           <th>Site URL</th>
-          <th>Services</th>
-          <th>Created Date</th>
-          <th>Last Updated</th>
+<!--          <th>Created Date</th>-->
+<!--          <th>Last Updated</th>-->
 
         <tr *ngFor="let asset of assetsToDisplay ;index as i">
           <td><input type="checkbox" id="{{asset.id}}" name="{{asset.id}}"> </td>
-          <td>{{ asset?.id || "NA"  }}</td>
-<!--          <td><a href="/client/{{asset.email}}">{{ asset?.email || "NA"  }}</a></td>-->
-          <td>{{ asset?.email || "NA"  }}</td>
+<!--          <td>{{ asset?.id || "NA"  }}</td>-->
+<!--&lt;!&ndash;          <td><a href="/client/{{asset.email}}">{{ asset?.email || "NA"  }}</a></td>&ndash;&gt;-->
+<!--          <td>{{ asset?.email || "NA"  }}</td>-->
+          <td>{{ asset?.services || "NA"  }}</td>
           <td>{{ asset?.adminURL || "NA"  }}</td>
           <td>{{ asset?.siteURL || "NA"  }}</td>
-          <td>{{ asset?.services || "NA"  }}</td>
-          <td>{{ asset?.createdDate || "NA"  }}</td>
-          <td>{{ asset?.updateDate || "NA"  }}</td>
+<!--          <td>{{ asset?.createdDate || "NA"  }}</td>-->
+<!--          <td>{{ asset?.updateDate || "NA"  }}</td>-->
 
 
         </tbody>
