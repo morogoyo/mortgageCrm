@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder} from "@angular/forms";
 import {ClientService} from "../../services/client/client.service";
 import {Clients} from "../../_shared/interfaces/clients";
-import {AssetDataService} from "../../services/internal/client/asset-data.service";
+import {ClientDataService} from "../../services/internal/client/client-data.service";
 
 @Component({
   selector: 'app-view-client-list',
@@ -20,7 +20,7 @@ export class ViewClientComponentList implements OnInit {
   }
 
   constructor(private crudService: ClientService, private modalService: NgbModal, private route: ActivatedRoute,
-              private router: Router, private fb: FormBuilder, private assetData: AssetDataService) {
+              private router: Router, private fb: FormBuilder, private assetData: ClientDataService) {
   }
 
   ///////////////////////////////////////////////////////////////////////////////

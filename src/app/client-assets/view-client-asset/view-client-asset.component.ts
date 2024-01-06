@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientAssetService} from "../../services/clientAsset/client-asset.service";
-import {Asset} from "../../_shared/interfaces/asset";
-import {AssetDataService} from "../../services/internal/client/asset-data.service";
+import {ClientDataService} from "../../services/internal/client/client-data.service";
 
 @Component({
   selector: 'app-view-client-asset',
@@ -14,7 +13,7 @@ export class ViewClientAssetComponent implements OnInit {
 
   testEmail=["email1@example.com"];
 
-  constructor(private clientAsset: ClientAssetService, private assetDataService: AssetDataService) {
+  constructor(private clientAsset: ClientAssetService, private assetDataService: ClientDataService) {
   }
   ngOnInit(): void {
     this.assetDataService.client.subscribe(data => {

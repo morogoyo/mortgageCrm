@@ -5,6 +5,7 @@ import { AddEstimateComponent } from './add-estimate/add-estimate.component';
 import { UpdateEstimateComponent } from './update-estimate/update-estimate.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ViewEstimateComponent } from './view-estimate/view-estimate.component';
 
 const routes: Routes = [
   {
@@ -58,7 +59,8 @@ const routes: Routes = [
   declarations: [
     ViewEstimateListComponent,
     AddEstimateComponent,
-    UpdateEstimateComponent
+    UpdateEstimateComponent,
+    ViewEstimateComponent
   ],
   imports: [
     CommonModule,

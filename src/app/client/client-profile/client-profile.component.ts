@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AssetDataService} from "../../services/internal/client/asset-data.service";
+import {ClientDataService} from "../../services/internal/client/client-data.service";
 import {ClientAssetService} from "../../services/clientAsset/client-asset.service";
 import {ViewClientAssetComponent} from "../../client-assets/view-client-asset/view-client-asset.component";
 import {ViewClientComponentList} from "../view-client-list/view-client-list.component";
@@ -17,7 +17,7 @@ export class ClientProfileComponent implements OnInit {
 
   assetToDisplay: any;
   email: any;
-  constructor(private assetDataTransfer: AssetDataService, private clientAssetService: ClientAssetService ) { }
+  constructor(private assetDataTransfer: ClientDataService, private clientAssetService: ClientAssetService ) { }
 
   ngOnInit(): void {
     // this.assetDataTransfer.client.subscribe(data => {

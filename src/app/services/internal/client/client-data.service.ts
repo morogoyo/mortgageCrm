@@ -4,7 +4,7 @@ import {BehaviorSubject} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class AssetDataService {
+export class ClientDataService {
 
   constructor() { }
 

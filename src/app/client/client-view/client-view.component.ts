@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from "../../services/client/client.service";
-import {AssetDataService} from "../../services/internal/client/asset-data.service";
+import {ClientDataService} from "../../services/internal/client/client-data.service";
 
 @Component({
   selector: 'app-client-view',
@@ -11,7 +11,7 @@ export class ClientViewComponent implements OnInit {
 
   clientToDisplay: any;
   passedInClient: any;
-  constructor(private clientService: ClientService, private assetDataService: AssetDataService) { }
+  constructor(private clientService: ClientService, private assetDataService: ClientDataService) { }
 
   ngOnInit(): void {
     this.assetDataService.client.subscribe(data => {
