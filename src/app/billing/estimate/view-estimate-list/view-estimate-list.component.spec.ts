@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewEstimateComponent } from './view-estimate.component';
+import { ViewEstimateListComponent } from './view-estimate-list.component';
 
 describe('ViewEstimateComponent', () => {
-  let component: ViewEstimateComponent;
-  let fixture: ComponentFixture<ViewEstimateComponent>;
+  let component: ViewEstimateListComponent;
+  let fixture: ComponentFixture<ViewEstimateListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewEstimateComponent ]
+      declarations: [ ViewEstimateListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewEstimateComponent);
+    fixture = TestBed.createComponent(ViewEstimateListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

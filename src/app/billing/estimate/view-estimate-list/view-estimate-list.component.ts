@@ -4,10 +4,10 @@ import {EstimateDataService} from "../../../services/internal/estimate/estimate-
 
 @Component({
   selector: 'app-view-estimate',
-  templateUrl: './view-estimate.component.html',
-  styleUrls: ['./view-estimate.component.scss']
+  templateUrl: './view-estimate-list.component.html',
+  styleUrls: ['./view-estimate-list.component.scss']
 })
-export class ViewEstimateComponent implements OnInit {
+export class ViewEstimateListComponent implements OnInit {
 
   estimateToDisplay: any;
   passedInClient: any;
