@@ -39,13 +39,14 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         label: 'view',
-        link: '/client'
+        link: '/client/view'
       }
-      // ,{
-      //
-      //   label: 'add',
-      //   link: '/client/add'
-      // },{
+      ,{
+
+        label: 'profile',
+        link: '/client/profile'
+      },
+      // {
       //   label: 'update',
       //   link: '/client/update'
       // },{

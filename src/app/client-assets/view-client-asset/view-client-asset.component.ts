@@ -12,6 +12,8 @@ export class ViewClientAssetComponent implements OnInit {
   assetsToDisplay: any[] = [];
   passedInClient: any;
 
+  testEmail=["email1@example.com"];
+
   constructor(private clientAsset: ClientAssetService, private assetDataService: AssetDataService) {
   }
   ngOnInit(): void {
@@ -22,10 +24,11 @@ export class ViewClientAssetComponent implements OnInit {
     // console.log(this.assetsToDisplay);
   }
 
-
-
+// TODO NEED TO FIGURE OUT WHY i MADE THIS COMPONENT AS THE ASSEST COMPONENT IS ALREADY DOING THE INTENDED JOB
+// TODO NEED TO FIX BACK END RESPONSE TO ELIMINATE FRONT END BROWSER ERROR
   viewAssets(){
-    this.clientAsset.viewAssetDetails(this.passedInClient.email).subscribe( data => {
+    // this.clientAsset.viewAssetDetails(this.passedInClient.email).subscribe( data => {
+    this.clientAsset.viewAssetDetails(this.testEmail[0]).subscribe( data => {
       this.assetsToDisplay = data;
     });
   }
