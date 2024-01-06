@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewEstimateComponent } from './view-estimate/view-estimate.component';
+import { ViewEstimateListComponent } from './view-estimate-list/view-estimate-list.component';
 import { AddEstimateComponent } from './add-estimate/add-estimate.component';
 import { UpdateEstimateComponent } from './update-estimate/update-estimate.component';
 import {RouterModule, Routes} from "@angular/router";
@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 const routes: Routes = [
   {
     path: '',
-    component: ViewEstimateComponent,
+    component: ViewEstimateListComponent,
     children: [
       {
         path: 'app-view-estimate',
@@ -56,7 +56,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ViewEstimateComponent,
+    ViewEstimateListComponent,
     AddEstimateComponent,
     UpdateEstimateComponent
   ],
