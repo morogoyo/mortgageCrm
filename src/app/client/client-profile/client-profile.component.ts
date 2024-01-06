@@ -20,17 +20,15 @@ export class ClientProfileComponent implements OnInit {
   constructor(private assetDataTransfer: AssetDataService, private clientAssetService: ClientAssetService ) { }
 
   ngOnInit(): void {
-    this.assetDataTransfer.client.subscribe(data => {
-      this.passedInClient = data;
-      console.log(this.passedInClient);
-    });
-    // this.viewClientAsset.viewAssets();
-    console.log(this.passedInClient);
+    // this.assetDataTransfer.client.subscribe(data => {
+    //   this.passedInClient = data;
+    //   console.log(this.passedInClient);
+    // });
+    // // this.viewClientAsset.viewAssets();
+    // console.log(this.passedInClient);
 
   }
 
-  viewAssets(){
 
-  }
 
 }
