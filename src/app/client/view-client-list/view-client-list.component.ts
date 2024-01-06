@@ -7,11 +7,11 @@ import {Clients} from "../../_shared/interfaces/clients";
 import {AssetDataService} from "../../services/internal/client/asset-data.service";
 
 @Component({
-  selector: 'app-view-client',
-  templateUrl: './view-client.component.html',
-  styleUrls: ['./view-client.component.scss']
+  selector: 'app-view-client-list',
+  templateUrl: './view-client-list.component.html',
+  styleUrls: ['./view-client-list.component.scss']
 })
-export class ViewClientComponent implements OnInit {
+export class ViewClientComponentList implements OnInit {
 
   ngOnInit(): void {
     // const dataTable = new DataTable("#leadsTable");

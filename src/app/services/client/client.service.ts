@@ -59,6 +59,10 @@ export class ClientService {
     return this.http.post(this.API_URL+"/delete", client);
   }
 
+  viewClient(client: any){
+    return this.http.post(this.API_URL + "/find-client", client)
+  }
+
 
 
 

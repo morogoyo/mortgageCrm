@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AssetDataService} from "../../services/internal/client/asset-data.service";
 import {ClientAssetService} from "../../services/clientAsset/client-asset.service";
 import {ViewClientAssetComponent} from "../../client-assets/view-client-asset/view-client-asset.component";
-import {ViewClientComponent} from "../view-client/view-client.component";
+import {ViewClientComponentList} from "../view-client-list/view-client-list.component";
 
 @Component({
   selector: 'app-client-profile',
