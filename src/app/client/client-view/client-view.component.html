@@ -1,12 +1,13 @@
 <ul class="list-group">
-  <li >Name: {{ clientToDisplay.fname }} {{clientToDisplay.lname}}</li>
-  <li >Email: {{ clientToDisplay.email }}</li>
-  <li >Address:{{ clientToDisplay.address}}</li>
-  <li >City: {{ clientToDisplay.city }}</li>
-  <li >State: {{ clientToDisplay.state }}</li>
-  <li >zip: {{ clientToDisplay.zip }}</li>
-  <li >Job Title: {{ clientToDisplay.jobTitle}}</li>
-  <li >Company Name: {{ clientToDisplay.companyName }}</li>
-  <li >Client Id: {{ clientToDisplay.id }}</li>
-  <li >{{ clientToDisplay.createdDate }}</li>
+  <li >Id: {{clientToDisplay?.id}}</li>
+  <li >Name: {{ clientToDisplay?.fname }} {{clientToDisplay?.lname}}</li>
+  <li >Email: {{ clientToDisplay?.email }}</li>
+  <li >Address:{{ clientToDisplay?.address}}</li>
+  <li >City: {{ clientToDisplay?.city }}</li>
+  <li >State: {{ clientToDisplay?.state }}</li>
+  <li >zip: {{ clientToDisplay?.zip }}</li>
+  <li >Job Title: {{ clientToDisplay?.jobTitle}}</li>
+  <li >Company Name: {{ clientToDisplay?.companyName }}</li>
+  <li >Client Id: {{ clientToDisplay?.id }}</li>
+  <li >{{ clientToDisplay?.createdDate }}</li>
 </ul>
