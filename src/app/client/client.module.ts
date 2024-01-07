@@ -10,10 +10,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import {NgbDropdownModule, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {ClientAssetsModule} from "../client-assets/client-assets.module";
-import {ViewClientAssetComponent} from "../client-assets/view-client-asset/view-client-asset.component";
 import { ClientViewComponent } from './client-view/client-view.component';
-import {EstimateModule} from "../billing/estimate/estimate.module";
 import {BillingModule} from "../billing/billing.module";
+import {EstimateModule} from "../billing/estimate/estimate.module";
 
 const routes: Routes = [
   {
@@ -32,8 +31,8 @@ const routes: Routes = [
     component: ViewClientComponentList,
     children: [
       {
-        path: 'view-client',
-        redirectTo: 'view-client',
+        path: 'app-view-client-list',
+        redirectTo: 'app-view-client-list',
         pathMatch: 'full',
       }
     ]
@@ -94,7 +93,8 @@ const routes: Routes = [
     NgbDropdownModule,
     NgbTooltipModule,
     ClientAssetsModule,
-    BillingModule
+    EstimateModule
+
 
   ]
 })

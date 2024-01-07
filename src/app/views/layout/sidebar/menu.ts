@@ -46,13 +46,13 @@ export const MENU: MenuItem[] = [
         label: 'profile',
         link: '/client/profile'
       },
-      // {
-      //   label: 'update',
-      //   link: '/client/update'
-      // },{
-      //   label: 'delete',
-      //   link: '/client/delete'
-      // },
+      {
+        label: 'update',
+        link: '/client/update'
+      },{
+        label: 'delete',
+        link: '/client/delete'
+      },
     ]
   },
   {
