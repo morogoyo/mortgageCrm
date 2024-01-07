@@ -52,15 +52,15 @@ export class ClientService {
         maritalStatus: client.maritalStatus,
         numberOfChildren: client.numberOfChildren
     }
-    return this.http.post<Leads>(this.API_URL+"/add", this.clients);
+    return this.http.post<Clients>(this.API_URL+"/add", this.clients);
   }
 
   deleteClient(client: any){
     return this.http.post(this.API_URL+"/delete", client);
   }
 
-  viewClient(client: any){
-    return this.http.post(this.API_URL + "/find-client", client)
+  viewClient(client: string){
+    return this.http.post<Clients>(this.API_URL + "/find-client", client)
   }
 
 

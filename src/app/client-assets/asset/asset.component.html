@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Assets for {{passedInClient.fname}} {{passedInClient.lname}}</h5>
-        <p>Client Asset ID: {{assetToDisplay.id}}</p>
+        <h5 class="card-title">Assets for {{passedInClient?.fname}} {{passedInClient?.lname}}</h5>
+<!--        <p>Client Asset ID: {{assetToDisplay?.id}}</p>-->
 
-        <p>Client Email: {{assetToDisplay.email}}</p>
-        <p><a href="{{assetToDisplay.adminURL}}" target="_blank">Admin URL: {{assetToDisplay.adminURL}}</a></p>
-        <p><a href="{{assetToDisplay.siteURL}}" target="_blank">Site URL: {{assetToDisplay.siteURL}}</a></p>
-        <p>Client Services: {{assetToDisplay.services}}</p>
+        <p>Client Email: {{assetToDisplay?.email}}</p>
+        <p><a href="{{assetToDisplay?.adminURL}}" target="_blank">Admin URL: {{assetToDisplay?.adminURL}}</a></p>
+        <p><a href="{{assetToDisplay?.siteURL}}" target="_blank">Site URL: {{assetToDisplay?.siteURL}}</a></p>
+        <p>Client Services: {{assetToDisplay?.services}}</p>
     </div>
 </div>
