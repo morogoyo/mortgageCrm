@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientDataService} from "../../services/internal/client/client-data.service";
 import {ClientAssetService} from "../../services/clientAsset/client-asset.service";
+import {Asset} from "../../_shared/interfaces/asset";
 
 @Component({
   selector: 'app-asset',
@@ -9,7 +10,7 @@ import {ClientAssetService} from "../../services/clientAsset/client-asset.servic
 })
 export class AssetComponent implements OnInit {
   passedInClient: any;
-  assetToDisplay: any;
+  assetToDisplay: Asset;
   email: any;
 
   constructor(private assetData: ClientDataService, private clientAssetService: ClientAssetService, private assetDataService: ClientDataService) { }

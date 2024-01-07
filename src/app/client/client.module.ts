@@ -12,6 +12,8 @@ import {NgbDropdownModule, NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
 import {ClientAssetsModule} from "../client-assets/client-assets.module";
 import {ViewClientAssetComponent} from "../client-assets/view-client-asset/view-client-asset.component";
 import { ClientViewComponent } from './client-view/client-view.component';
+import {EstimateModule} from "../billing/estimate/estimate.module";
+import {BillingModule} from "../billing/billing.module";
 
 const routes: Routes = [
   {
@@ -91,7 +93,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgbDropdownModule,
     NgbTooltipModule,
-    ClientAssetsModule
+    ClientAssetsModule,
+    BillingModule
 
   ]
 })

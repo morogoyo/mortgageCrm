@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from "../../services/client/client.service";
 import {ClientDataService} from "../../services/internal/client/client-data.service";
+import {Clients} from "../../_shared/interfaces/clients";
+
 
 @Component({
   selector: 'app-client-view',
@@ -9,7 +11,7 @@ import {ClientDataService} from "../../services/internal/client/client-data.serv
 })
 export class ClientViewComponent implements OnInit {
 
-  clientToDisplay: any;
+  clientToDisplay: Clients;
   passedInClient: any;
   constructor(private clientService: ClientService, private assetDataService: ClientDataService) { }
 
@@ -22,6 +24,7 @@ export class ClientViewComponent implements OnInit {
 
 
   viewClient(){
+    // let email = this.passedInClient.email
     this.clientService.viewClient(this.passedInClient).subscribe(data => {
         this.clientToDisplay = data;
         console.log(this.clientToDisplay);
